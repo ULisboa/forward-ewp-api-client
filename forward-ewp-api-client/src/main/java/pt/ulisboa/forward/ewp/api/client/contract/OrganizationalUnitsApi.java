@@ -7,6 +7,13 @@ import feign.RequestLine;
 import java.util.List;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 
+/**
+ * Contract interface for the Organizational Units Forward EWP API.
+ *
+ * @see <a
+ *     href="https://github.com/erasmus-without-paper/ewp-specs-api-ounits/blob/stable-v2/response.xsd">OunitsResponse
+ *     specification (element ounits-response)</a>
+ */
 public interface OrganizationalUnitsApi extends BaseApi {
 
   @RequestLine("POST /rest/forward/ewp/ounits")
