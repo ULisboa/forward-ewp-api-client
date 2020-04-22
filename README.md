@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">This Java library provides a simple way to use the Forward EWP APIs of an [EWP Node](https://github.com/ULisboa/ewp-node) by abstracting protocol communications.</h4>
+<h4 align="center">This Java library provides a simple way to use the Forward EWP APIs of an EWP Node (https://github.com/ULisboa/ewp-node) by abstracting protocol communications.</h4>
 
 
 ## Work in Progress warning
