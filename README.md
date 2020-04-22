@@ -62,11 +62,11 @@ public class MyApp {
 }
 ```
 
-The following sections detail the several steps to use the library, besides additional aspects.
+The following sections detail the main steps to use the library. Other aspects/details are also included.
 
 ## Configuration
 
-The library must be configured before being possible to use it.
+The library must be configured before being able to use it.
 For that, it is necessary to run the following fragment:
 ```
 ClientConfiguration.configure("https://example.com", "host-code", "secret");
@@ -83,7 +83,7 @@ The configuration expects three parameters, by order:
 To create a client for a specific Forward EWP API, first, it is necessary to know what is the corresponding 
 contract interface. The contract interface is a Java interface providing methods that abstract the 
 communication details. The supported Forward EWP APIs and corresponding contract interfaces can be 
-consulted at [APIs supported](#apis-supported).
+checked at [APIs supported](#apis-supported).
 
 A client is created by running:
 ```
@@ -92,11 +92,9 @@ A client is created by running:
 Replace the fragments ```<CONTRACT_CLASS>``` with the contract interface corresponding to the intended 
 Forward EWP API.
 
-## Calling the Client
+## Client Responses
 
-With a client created, using it is done, basically, using the methods specified on the contract interface.
-Therefore, for a list of supported operations of a given client you only need to see the list 
-of methods of the Java interface.
+After a client is created, you can use it by invoking the methods specified on the contract interface.
 
 When a method of the client is called, generally, as long as the request does not fail, 
 an instance of ResponseWithDataDto<T>, where T may be any EWP data class (except for the 
