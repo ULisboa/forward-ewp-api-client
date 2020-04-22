@@ -1,6 +1,7 @@
 package pt.ulisboa.forward.ewp.api.client.dto;
 
 import eu.erasmuswithoutpaper.api.architecture.ErrorResponse;
+import eu.erasmuswithoutpaper.api.courses.replication.CourseReplicationResponse;
 import eu.erasmuswithoutpaper.api.institutions.InstitutionsResponse;
 import eu.erasmuswithoutpaper.api.ounits.OunitsResponse;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -18,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
       AuthenticationTestResponseDto.class,
       InstitutionsResponse.class,
       OunitsResponse.class,
+      CourseReplicationResponse.class,
       ErrorResponse.class
     })
 public class ResponseWithDataDto<T> extends ResponseDto {
