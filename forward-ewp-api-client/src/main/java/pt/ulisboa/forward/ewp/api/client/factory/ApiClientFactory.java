@@ -6,6 +6,7 @@ import feign.Feign;
 import feign.Logger.Level;
 import feign.Target;
 import feign.Target.HardCodedTarget;
+import feign.form.FormEncoder;
 import feign.jaxb.JAXBContextFactory;
 import feign.jaxb.JAXBDecoder;
 import feign.slf4j.Slf4jLogger;
@@ -35,6 +36,7 @@ public class ApiClientFactory {
 
   public static <T extends BaseApi> T createClient(Client httpClient, Target<T> target) {
     return Feign.builder()
+        .encoder(new FormEncoder())
         .decoder(new JAXBDecoder(getJAXBContextFactory()))
         .requestInterceptor(new JwtRequestInterceptor())
         .client(httpClient)

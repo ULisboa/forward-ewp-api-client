@@ -2,6 +2,7 @@ package pt.ulisboa.forward.ewp.api.client.dto;
 
 import eu.erasmuswithoutpaper.api.architecture.ErrorResponse;
 import eu.erasmuswithoutpaper.api.institutions.InstitutionsResponse;
+import eu.erasmuswithoutpaper.api.ounits.OunitsResponse;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyElement;
@@ -13,7 +14,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "")
 @XmlRootElement(name = "forward-ewp-api-response-with-data")
 @XmlSeeAlso(
-    value = {AuthenticationTestResponseDto.class, InstitutionsResponse.class, ErrorResponse.class})
+    value = {
+      AuthenticationTestResponseDto.class,
+      InstitutionsResponse.class,
+      OunitsResponse.class,
+      ErrorResponse.class
+    })
 public class ResponseWithDataDto<T> extends ResponseDto {
 
   private Data<T> data;
