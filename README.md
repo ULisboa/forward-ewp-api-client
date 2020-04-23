@@ -97,7 +97,7 @@ Forward EWP API.
 After a client is created, you can use it by invoking the methods specified on the contract interface.
 
 When a method of the client is called, generally, as long as the request does not fail, 
-an instance of ResponseWithDataDto<T>, where T may be any EWP data class (except for the 
+an instance of ResponseWithDataDto\<T\>, where T may be any EWP data class (except for the 
 Authentication API, where it is of a specific EWP Node data class), is returned.
 That instance will contain a list of messages that the EWP Node may have produced 
 (that may contain relevant information), and 
