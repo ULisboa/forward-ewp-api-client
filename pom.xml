@@ -22,6 +22,15 @@
     </license>
   </licenses>
 
+  <developers>
+    <developer>
+      <name>ULisboa Development Team</name>
+      <email>desenvolvimento.di@reitoria.ulisboa.pt</email>
+      <organization>University of Lisbon</organization>
+      <organizationUrl>https://www.ulisboa.pt/</organizationUrl>
+    </developer>
+  </developers>
+
   <scm>
     <connection>scm:git:git://github.com/ULisboa/forward-ewp-api-client.git</connection>
     <developerConnection>scm:git:ssh://github.com:ULisboa/forward-ewp-api-client.git</developerConnection>
