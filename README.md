@@ -7,6 +7,17 @@
   <br>
 </h1>
 
+<p align="center">
+  <a href="https://maven-badges.herokuapp.com/maven-central/pt.ulisboa/forward-ewp-api-client">
+    <img src="https://maven-badges.herokuapp.com/maven-central/pt.ulisboa/forward-ewp-api-client/badge.svg"
+        alt="Maven Central">
+  </a>
+  <a href="https://github.com/ULisboa/forward-ewp-api-client/blob/master/LICENSE">
+    <img alt="GitHub" src="https://img.shields.io/github/license/ulisboa/forward-ewp-api-client">
+  </a>
+  <img src="https://img.shields.io/badge/JDK-11+-green.svg" alt="JDK 11+">
+</p>
+
 <h4 align="center">This Java library provides a simple way to use the Forward EWP APIs of an EWP Node (https://github.com/ULisboa/ewp-node) by abstracting protocol communications.</h4>
 
 
@@ -17,7 +28,11 @@ non-backward changes may be introduced.
 
 ## Requirements
 
-To clone and use this project, you'll need [Git](https://git-scm.com) and [Maven](https://maven.apache.org/).
+To clone and use this project, you'll need [Git](https://git-scm.com), if you intend to build it yourself, and [Maven](https://maven.apache.org/).
+
+## Using the library
+
+To use the library, click the Maven Central badge above and use the correct snippet for your dependency manager.
 
 ## Cloning the Project
 
