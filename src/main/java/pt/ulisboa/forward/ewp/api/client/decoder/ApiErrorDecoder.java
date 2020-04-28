@@ -9,7 +9,10 @@ import feign.jaxb.JAXBContextFactory.Builder;
 import feign.jaxb.JAXBDecoder;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto;
+import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto.Message;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.exception.ErrorDecoderException;
 import pt.ulisboa.forward.ewp.api.client.exception.RequestException;
@@ -41,7 +44,7 @@ public class ApiErrorDecoder implements ErrorDecoder {
         return new ErrorDecoderException(
             statusCode, response.toString(), FeignException.errorStatus(methodKey, response));
       }
-    } catch (IOException e) {
+    } catch (Exception e) {
       return new ErrorDecoderException(statusCode, response.toString(), e);
     }
   }
@@ -62,12 +65,16 @@ public class ApiErrorDecoder implements ErrorDecoder {
           response.status(), responseDto.getMessages(), responseDto.getDataObject());
     } else {
       ResponseDto responseDto = (ResponseDto) jaxbDecoder.decode(response, ResponseDto.class);
-      return new RequestException(response.status(), responseDto.getMessages());
+      List<Message> messages =
+          responseDto != null ? responseDto.getMessages() : Collections.emptyList();
+      return new RequestException(response.status(), messages);
     }
   }
 
   Exception resolveServerErrorToException(Response response) throws IOException {
     ResponseDto responseDto = (ResponseDto) jaxbDecoder.decode(response, ResponseDto.class);
-    return new RequestException(response.status(), responseDto.getMessages());
+    List<Message> messages =
+        responseDto != null ? responseDto.getMessages() : Collections.emptyList();
+    return new RequestException(response.status(), messages);
   }
 }
