@@ -24,6 +24,7 @@ import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto.Message;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto.Message.MessageSeverity;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto.Data;
+import pt.ulisboa.forward.ewp.api.client.exception.ErrorDecoderException;
 import pt.ulisboa.forward.ewp.api.client.exception.RequestException;
 import pt.ulisboa.forward.ewp.api.client.utils.HttpConstants;
 
@@ -115,13 +116,40 @@ class ApiErrorDecoderTest extends AbstractTest {
             });
   }
 
+  @Test
+  public void testErrorDecoder_UnknownStatusCode() throws JAXBException {
+    ClientConfiguration.configure("", "host-code", "secret");
+
+    ResponseDto responseDto = createResponseDtoWithOneErrorMessage("Test");
+
+    MockClient mockClient = new MockClient();
+    int statusCode = 600;
+    ErrorDecoderApiTest target =
+        Feign.builder()
+            .client(
+                mockClient.add(
+                    RequestKey.builder(HttpMethod.GET, "/test").build(),
+                    Response.builder()
+                        .status(statusCode)
+                        .body(marshallToXml(responseDto).getBytes())))
+            .errorDecoder(new ApiErrorDecoder())
+            .target(new MockTarget<>(ErrorDecoderApiTest.class));
+    assertThatThrownBy(target::test)
+        .isInstanceOf(ErrorDecoderException.class)
+        .satisfies(
+            exception -> {
+              ErrorDecoderException errorDecoderException = (ErrorDecoderException) exception;
+              assertThat(errorDecoderException.getStatusCode()).isEqualTo(statusCode);
+            });
+  }
+
   private <T> ResponseWithDataDto<T> createResponseDtoWithOneErrorMessageAndData(
       String errorMessage, T dataObject) {
     Message message = new Message();
     message.setSeverity(MessageSeverity.ERROR);
     message.setSummary(errorMessage);
     ResponseWithDataDto<T> responseWithDataDto = new ResponseWithDataDto<>();
-    responseWithDataDto.getMessages().add(message);
+    responseWithDataDto.setMessages(Collections.singletonList(message));
     Data<T> data = new Data<>();
     data.setObject(dataObject);
     responseWithDataDto.setData(data);
@@ -133,7 +161,7 @@ class ApiErrorDecoderTest extends AbstractTest {
     message.setSeverity(MessageSeverity.ERROR);
     message.setSummary(errorMessage);
     ResponseDto responseDto = new ResponseDto();
-    responseDto.getMessages().add(message);
+    responseDto.setMessages(Collections.singletonList(message));
     return responseDto;
   }
 

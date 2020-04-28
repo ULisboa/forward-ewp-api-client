@@ -36,16 +36,21 @@ public class ApiErrorDecoder implements ErrorDecoder {
   public Exception decode(String methodKey, Response response) {
     int statusCode = response.status();
     try {
-      if (400 <= statusCode && statusCode < 500) {
-        return resolveClientErrorToException(response);
-      } else if (500 <= statusCode && statusCode < 600) {
-        return resolveServerErrorToException(response);
-      } else {
-        return new ErrorDecoderException(
-            statusCode, response.toString(), FeignException.errorStatus(methodKey, response));
-      }
+      return decodeResponseByStatusCode(methodKey, response, statusCode);
     } catch (Exception e) {
       return new ErrorDecoderException(statusCode, response.toString(), e);
+    }
+  }
+
+  private Exception decodeResponseByStatusCode(String methodKey, Response response, int statusCode)
+      throws IOException {
+    if (400 <= statusCode && statusCode < 500) {
+      return resolveClientErrorToException(response);
+    } else if (500 <= statusCode && statusCode < 600) {
+      return resolveServerErrorToException(response);
+    } else {
+      return new ErrorDecoderException(
+          statusCode, response.toString(), FeignException.errorStatus(methodKey, response));
     }
   }
 
