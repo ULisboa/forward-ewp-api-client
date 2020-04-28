@@ -32,8 +32,8 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/ULisboa/forward-ewp-api-client.git</connection>
-    <developerConnection>scm:git:ssh://github.com:ULisboa/forward-ewp-api-client.git
+    <connection>scm:git:git@github.com:ULisboa/forward-ewp-api-client.git</connection>
+    <developerConnection>scm:git:git@github.com:ULisboa/forward-ewp-api-client.git
     </developerConnection>
     <url>http://github.com/ULisboa/forward-ewp-api-client/tree/master</url>
   </scm>
