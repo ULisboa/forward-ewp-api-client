@@ -143,6 +143,7 @@ Currently, the supported Forward EWP APIs and corresponding contract interfaces 
 | Institutions  | InstitutionsApi  |
 | Organizational Units  | OrganizationalUnitsApi  |
 | Simple Course Replication  | SimpleCourseReplicationApi  |
+| Courses  | CoursesApi  |
 
 ## License
 
