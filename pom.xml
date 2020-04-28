@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
 
   <name>Forward EWP API Client for an EWP Node</name>
-  <description>Java library that provides a simple way to use the Forward EWP APIs of an 
+  <description>Java library that provides a simple way to use the Forward EWP APIs of an
     EWP Node (https://github.com/ULisboa/ewp-node) by abstracting protocol communications.
   </description>
   <url>https://github.com/ULisboa/forward-ewp-api-client</url>
@@ -33,7 +33,8 @@
 
   <scm>
     <connection>scm:git:git://github.com/ULisboa/forward-ewp-api-client.git</connection>
-    <developerConnection>scm:git:ssh://github.com:ULisboa/forward-ewp-api-client.git</developerConnection>
+    <developerConnection>scm:git:ssh://github.com:ULisboa/forward-ewp-api-client.git
+    </developerConnection>
     <url>http://github.com/ULisboa/forward-ewp-api-client/tree/master</url>
   </scm>
 
@@ -153,6 +154,15 @@
         <configuration>
           <encoding>${project.build.sourceEncoding}</encoding>
           <release>11</release>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <releaseProfiles>release</releaseProfiles>
+          <tagNameFormat>@{project.version}</tagNameFormat>
         </configuration>
       </plugin>
 
