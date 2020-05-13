@@ -20,8 +20,10 @@ import javax.xml.bind.annotation.XmlType;
     value = {
       AuthenticationTestResponseDto.class,
       InstitutionsResponse.class,
+      OrganizationalUnitsApiSpecificationResponseDTO.class,
       OunitsResponse.class,
       CourseReplicationResponse.class,
+      CoursesApiSpecificationResponseDTO.class,
       CoursesResponse.class,
       ErrorResponse.class
     })
