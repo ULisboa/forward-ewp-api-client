@@ -145,6 +145,9 @@ Currently, the supported Forward EWP APIs and corresponding contract interfaces 
 | Simple Course Replication  | SimpleCourseReplicationApi  |
 | Courses  | CoursesApi  |
 
+The contract interfaces contain Javadoc comments that are relevant to read 
+before using them.
+
 ## License
 
 This project is licensed under the terms of the [MIT license](LICENSE).
