@@ -12,10 +12,85 @@ import javax.xml.bind.JAXBException;
 import org.junit.jupiter.api.Test;
 import pt.ulisboa.forward.ewp.api.client.AbstractTest;
 import pt.ulisboa.forward.ewp.api.client.config.ClientConfiguration;
+import pt.ulisboa.forward.ewp.api.client.dto.CoursesApiSpecificationResponseDTO;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.factory.ApiClientFactory;
 
 class CoursesApiTest extends AbstractTest {
+
+  @Test
+  public void testGetApiSpecification_ValidRequest_Success() throws JAXBException {
+    String heiId = "demo";
+
+    CoursesApiSpecificationResponseDTO coursesApiSpecificationResponseDTO =
+        new CoursesApiSpecificationResponseDTO(1, 2);
+    ResponseWithDataDto<CoursesApiSpecificationResponseDTO> responseBody =
+        ResponseWithDataDto.createWithoutMessages(coursesApiSpecificationResponseDTO);
+
+    MockClient mockClient =
+        new MockClient()
+            .ok(
+                HttpMethod.GET,
+                "/rest/forward/ewp/courses/specification?hei_id=" + heiId,
+                marshallToXml(responseBody));
+
+    ClientConfiguration.configure("", "", "secret");
+    CoursesApi client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesApi.class));
+
+    ResponseWithDataDto<CoursesApiSpecificationResponseDTO> response =
+        client.getApiSpecification(heiId);
+    assertThat(response).isNotNull();
+    assertThat(response.getDataObject()).isNotNull();
+    assertThat(response.getDataObject().getMaxLosIds()).isEqualTo(1);
+    assertThat(response.getDataObject().getMaxLosCodes()).isEqualTo(2);
+  }
+
+  @Test
+  public void testGetMaxLosIdsPerRequest_ValidRequest_Success() throws JAXBException {
+    String heiId = "demo";
+
+    CoursesApiSpecificationResponseDTO coursesApiSpecificationResponseDTO =
+        new CoursesApiSpecificationResponseDTO(1, 2);
+    ResponseWithDataDto<CoursesApiSpecificationResponseDTO> responseBody =
+        ResponseWithDataDto.createWithoutMessages(coursesApiSpecificationResponseDTO);
+
+    MockClient mockClient =
+        new MockClient()
+            .ok(
+                HttpMethod.GET,
+                "/rest/forward/ewp/courses/specification?hei_id=" + heiId,
+                marshallToXml(responseBody));
+
+    ClientConfiguration.configure("", "", "secret");
+    CoursesApi client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesApi.class));
+
+    assertThat(client.getMaxLosIdsPerRequest(heiId)).isEqualTo(1);
+  }
+
+  @Test
+  public void testGetMaxLosCodesPerRequest_ValidRequest_Success() throws JAXBException {
+    String heiId = "demo";
+
+    CoursesApiSpecificationResponseDTO coursesApiSpecificationResponseDTO =
+        new CoursesApiSpecificationResponseDTO(1, 2);
+    ResponseWithDataDto<CoursesApiSpecificationResponseDTO> responseBody =
+        ResponseWithDataDto.createWithoutMessages(coursesApiSpecificationResponseDTO);
+
+    MockClient mockClient =
+        new MockClient()
+            .ok(
+                HttpMethod.GET,
+                "/rest/forward/ewp/courses/specification?hei_id=" + heiId,
+                marshallToXml(responseBody));
+
+    ClientConfiguration.configure("", "", "secret");
+    CoursesApi client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesApi.class));
+
+    assertThat(client.getMaxLosCodesPerRequest(heiId)).isEqualTo(2);
+  }
 
   @Test
   public void testFindByLosIds_ValidRequest_Success() throws JAXBException {

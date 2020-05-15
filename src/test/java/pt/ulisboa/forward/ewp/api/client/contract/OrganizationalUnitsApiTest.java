@@ -12,10 +12,85 @@ import javax.xml.bind.JAXBException;
 import org.junit.jupiter.api.Test;
 import pt.ulisboa.forward.ewp.api.client.AbstractTest;
 import pt.ulisboa.forward.ewp.api.client.config.ClientConfiguration;
+import pt.ulisboa.forward.ewp.api.client.dto.OrganizationalUnitsApiSpecificationResponseDTO;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.factory.ApiClientFactory;
 
 class OrganizationalUnitsApiTest extends AbstractTest {
+
+  @Test
+  public void testGetApiSpecification_ValidRequest_Success() throws JAXBException {
+    String heiId = "demo";
+
+    OrganizationalUnitsApiSpecificationResponseDTO organizationalUnitsApiSpecificationResponseDTO =
+        new OrganizationalUnitsApiSpecificationResponseDTO(1, 2);
+    ResponseWithDataDto<OrganizationalUnitsApiSpecificationResponseDTO> responseBody =
+        ResponseWithDataDto.createWithoutMessages(organizationalUnitsApiSpecificationResponseDTO);
+
+    MockClient mockClient =
+        new MockClient()
+            .ok(
+                HttpMethod.GET,
+                "/rest/forward/ewp/ounits/specification?hei_id=" + heiId,
+                marshallToXml(responseBody));
+
+    ClientConfiguration.configure("", "", "secret");
+    OrganizationalUnitsApi client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsApi.class));
+
+    ResponseWithDataDto<OrganizationalUnitsApiSpecificationResponseDTO> response =
+        client.getApiSpecification(heiId);
+    assertThat(response).isNotNull();
+    assertThat(response.getDataObject()).isNotNull();
+    assertThat(response.getDataObject().getMaxOunitIds()).isEqualTo(1);
+    assertThat(response.getDataObject().getMaxOunitCodes()).isEqualTo(2);
+  }
+
+  @Test
+  public void testGetMaxOunitsIdsPerRequest_ValidRequest_Success() throws JAXBException {
+    String heiId = "demo";
+
+    OrganizationalUnitsApiSpecificationResponseDTO organizationalUnitsApiSpecificationResponseDTO =
+        new OrganizationalUnitsApiSpecificationResponseDTO(1, 2);
+    ResponseWithDataDto<OrganizationalUnitsApiSpecificationResponseDTO> responseBody =
+        ResponseWithDataDto.createWithoutMessages(organizationalUnitsApiSpecificationResponseDTO);
+
+    MockClient mockClient =
+        new MockClient()
+            .ok(
+                HttpMethod.GET,
+                "/rest/forward/ewp/ounits/specification?hei_id=" + heiId,
+                marshallToXml(responseBody));
+
+    ClientConfiguration.configure("", "", "secret");
+    OrganizationalUnitsApi client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsApi.class));
+
+    assertThat(client.getMaxOunitIdsPerRequest(heiId)).isEqualTo(1);
+  }
+
+  @Test
+  public void testGetMaxOunitCodesPerRequest_ValidRequest_Success() throws JAXBException {
+    String heiId = "demo";
+
+    OrganizationalUnitsApiSpecificationResponseDTO organizationalUnitsApiSpecificationResponseDTO =
+        new OrganizationalUnitsApiSpecificationResponseDTO(1, 2);
+    ResponseWithDataDto<OrganizationalUnitsApiSpecificationResponseDTO> responseBody =
+        ResponseWithDataDto.createWithoutMessages(organizationalUnitsApiSpecificationResponseDTO);
+
+    MockClient mockClient =
+        new MockClient()
+            .ok(
+                HttpMethod.GET,
+                "/rest/forward/ewp/ounits/specification?hei_id=" + heiId,
+                marshallToXml(responseBody));
+
+    ClientConfiguration.configure("", "", "secret");
+    OrganizationalUnitsApi client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsApi.class));
+
+    assertThat(client.getMaxOunitCodesPerRequest(heiId)).isEqualTo(2);
+  }
 
   @Test
   public void testFindByIds_ValidRequest_Success() throws JAXBException {
