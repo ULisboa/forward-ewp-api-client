@@ -14,6 +14,12 @@ import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
  */
 public interface SimpleCourseReplicationApi extends BaseApi {
 
+  /**
+   * Returns a list of courses that a given HEI ID possesses.
+   *
+   * @param heiId HEI ID of an institution.
+   * @return A response whose data is the list of courses possessed by the institution.
+   */
   @RequestLine("GET /rest/forward/ewp/courses/replication?hei_id={heiId}")
   ResponseWithDataDto<CourseReplicationResponse> findAllByHeiId(@Param("heiId") String heiId);
 }

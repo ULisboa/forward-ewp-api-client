@@ -17,6 +17,14 @@ import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
  */
 public interface OrganizationalUnitsApi extends BaseApi {
 
+  /**
+   * Returns the specification of the target API, including the maximum number of Organizational
+   * Unit IDs and codes accepted in any given request for a specific HEI ID.
+   *
+   * @param heiId HEI ID of an institution.
+   * @return A response whose data contains the maximum number of Organizational Unit IDs and codes
+   *     accepted in any given request for a specific HEI ID.
+   */
   @RequestLine("GET /rest/forward/ewp/ounits/specification?hei_id={hei_id}")
   ResponseWithDataDto<OrganizationalUnitsApiSpecificationResponseDTO> getApiSpecification(
       @Param("hei_id") String heiId);

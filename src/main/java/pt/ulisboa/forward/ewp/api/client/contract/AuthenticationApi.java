@@ -7,10 +7,16 @@ import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 /**
  * Contract interface for the Authentication Forward EWP API. This API actually does not forward
  * requests to other EWP servers. It exists to help identify authentication problems from the client
- * to the EWP Node.
+ * to the EWP Node. Therefore, it may be used, for instance, to check the connection to the EWP Node
+ * is working correctly.
  */
 public interface AuthenticationApi extends BaseApi {
 
+  /**
+   * Returns the host code that was identified by the EWP Node.
+   *
+   * @return A response whose data contains the host code that was identified by the EWP Node.
+   */
   @RequestLine("GET /rest/forward/ewp/authentication/test")
   ResponseWithDataDto<AuthenticationTestResponseDto> test();
 }

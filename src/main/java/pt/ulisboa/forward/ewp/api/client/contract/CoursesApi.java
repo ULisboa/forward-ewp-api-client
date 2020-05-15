@@ -18,6 +18,14 @@ import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
  */
 public interface CoursesApi extends BaseApi {
 
+  /**
+   * Returns the specification of the target API, including the maximum number of LOS IDs and codes
+   * accepted in any given request for a specific HEI ID.
+   *
+   * @param heiId HEI ID of an institution.
+   * @return A response whose data contains the maximum number of LOS IDs and codes accepted in any
+   *     given request for a specific HEI ID.
+   */
   @RequestLine("GET /rest/forward/ewp/courses/specification?hei_id={hei_id}")
   ResponseWithDataDto<CoursesApiSpecificationResponseDTO> getApiSpecification(
       @Param("hei_id") String heiId);

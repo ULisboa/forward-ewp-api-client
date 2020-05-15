@@ -14,6 +14,12 @@ import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
  */
 public interface InstitutionsApi extends BaseApi {
 
+  /**
+   * Returns the institution data for a given HEI ID.
+   *
+   * @param heiId HEI ID of an institution.
+   * @return A response whose data is the institution details.
+   */
   @RequestLine("GET /rest/forward/ewp/institutions?hei_id={heiId}")
   ResponseWithDataDto<InstitutionsResponse> findByHeiId(@Param("heiId") String heiId);
 }
