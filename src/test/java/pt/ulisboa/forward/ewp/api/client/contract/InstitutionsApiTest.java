@@ -30,7 +30,7 @@ class InstitutionsApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/rest/forward/ewp/institutions?hei_id=" + heiId,
+                "/api/forward/ewp/institutions?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");

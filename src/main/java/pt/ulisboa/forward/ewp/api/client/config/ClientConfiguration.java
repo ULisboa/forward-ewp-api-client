@@ -39,8 +39,8 @@ public class ClientConfiguration {
    * Configures globally the client.
    *
    * @param apiBaseUrl Base API URL for the Forward Ewp APIs. For example, if the Forward
-   *     Institutions EWP API is available at https://www.example.com/rest/forward/ewp/institutions,
-   *     then the base API URL is https://www.example.com/rest/forward/ewp.
+   *     Institutions EWP API is available at https://www.example.com/api/forward/ewp/institutions,
+   *     then the base API URL is https://www.example.com/.
    * @param hostCode Unique identifier of the host.
    * @param secret Secret associated with the host, used for encoding during the authentication
    *     phase.

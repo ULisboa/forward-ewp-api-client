@@ -17,6 +17,6 @@ public interface AuthenticationApi extends BaseApi {
    *
    * @return A response whose data contains the host code that was identified by the EWP Node.
    */
-  @RequestLine("GET /rest/forward/ewp/authentication/test")
+  @RequestLine("GET /api/forward/ewp/authentication/test")
   ResponseWithDataDto<AuthenticationTestResponseDto> test();
 }

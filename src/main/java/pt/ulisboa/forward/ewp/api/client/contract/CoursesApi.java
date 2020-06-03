@@ -26,7 +26,7 @@ public interface CoursesApi extends BaseApi {
    * @return A response whose data contains the maximum number of LOS IDs and codes accepted in any
    *     given request for a specific HEI ID.
    */
-  @RequestLine("GET /rest/forward/ewp/courses/specification?hei_id={hei_id}")
+  @RequestLine("GET /api/forward/ewp/courses/specification?hei_id={hei_id}")
   ResponseWithDataDto<CoursesApiSpecificationResponseDTO> getApiSpecification(
       @Param("hei_id") String heiId);
 
@@ -53,7 +53,7 @@ public interface CoursesApi extends BaseApi {
   }
 
   /** @requires losIds.size() <= getMaxLosIdsPerRequest(heiId) */
-  @RequestLine("POST /rest/forward/ewp/courses")
+  @RequestLine("POST /api/forward/ewp/courses")
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseWithDataDto<CoursesResponse> findByLosIds(
       @Param("hei_id") String heiId,
@@ -68,7 +68,7 @@ public interface CoursesApi extends BaseApi {
   }
 
   /** @requires losCodes.size() <= getMaxLosCodesPerRequest(heiId) */
-  @RequestLine("POST /rest/forward/ewp/courses")
+  @RequestLine("POST /api/forward/ewp/courses")
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseWithDataDto<CoursesResponse> findByLosCodes(
       @Param("hei_id") String heiId,

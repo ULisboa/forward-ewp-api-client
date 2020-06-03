@@ -12,3 +12,6 @@
 /.tern-project
 **/logs/
 .directory
+
+# Experiments
+src/main/java/lab

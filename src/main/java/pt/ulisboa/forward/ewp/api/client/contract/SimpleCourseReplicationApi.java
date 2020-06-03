@@ -20,6 +20,6 @@ public interface SimpleCourseReplicationApi extends BaseApi {
    * @param heiId HEI ID of an institution.
    * @return A response whose data is the list of courses possessed by the institution.
    */
-  @RequestLine("GET /rest/forward/ewp/courses/replication?hei_id={heiId}")
+  @RequestLine("GET /api/forward/ewp/courses/replication?hei_id={heiId}")
   ResponseWithDataDto<CourseReplicationResponse> findAllByHeiId(@Param("heiId") String heiId);
 }

@@ -31,7 +31,7 @@ class CoursesApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/rest/forward/ewp/courses/specification?hei_id=" + heiId,
+                "/api/forward/ewp/courses/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
@@ -59,7 +59,7 @@ class CoursesApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/rest/forward/ewp/courses/specification?hei_id=" + heiId,
+                "/api/forward/ewp/courses/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
@@ -82,7 +82,7 @@ class CoursesApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/rest/forward/ewp/courses/specification?hei_id=" + heiId,
+                "/api/forward/ewp/courses/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
@@ -110,7 +110,7 @@ class CoursesApiTest extends AbstractTest {
 
     MockClient mockClient =
         new MockClient()
-            .ok(HttpMethod.POST, "/rest/forward/ewp/courses", marshallToXml(responseBody));
+            .ok(HttpMethod.POST, "/api/forward/ewp/courses", marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
     CoursesApi client =
@@ -145,7 +145,7 @@ class CoursesApiTest extends AbstractTest {
 
     MockClient mockClient =
         new MockClient()
-            .ok(HttpMethod.POST, "/rest/forward/ewp/courses", marshallToXml(responseBody));
+            .ok(HttpMethod.POST, "/api/forward/ewp/courses", marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
     CoursesApi client =

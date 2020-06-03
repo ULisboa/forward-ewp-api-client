@@ -25,7 +25,7 @@ public interface OrganizationalUnitsApi extends BaseApi {
    * @return A response whose data contains the maximum number of Organizational Unit IDs and codes
    *     accepted in any given request for a specific HEI ID.
    */
-  @RequestLine("GET /rest/forward/ewp/ounits/specification?hei_id={hei_id}")
+  @RequestLine("GET /api/forward/ewp/ounits/specification?hei_id={hei_id}")
   ResponseWithDataDto<OrganizationalUnitsApiSpecificationResponseDTO> getApiSpecification(
       @Param("hei_id") String heiId);
 
@@ -52,13 +52,13 @@ public interface OrganizationalUnitsApi extends BaseApi {
   }
 
   /** @requires ounitIds.size() <= getMaxOunitIdsPerRequest(heiId) */
-  @RequestLine("POST /rest/forward/ewp/ounits")
+  @RequestLine("POST /api/forward/ewp/ounits")
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseWithDataDto<OunitsResponse> findByIds(
       @Param("hei_id") String heiId, @Param("ounit_id") List<String> ounitIds);
 
   /** @requires ounitCodes.size() <= getMaxOunitCodesPerRequest(heiId) */
-  @RequestLine("POST /rest/forward/ewp/ounits")
+  @RequestLine("POST /api/forward/ewp/ounits")
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseWithDataDto<OunitsResponse> findByCodes(
       @Param("hei_id") String heiId, @Param("ounit_code") List<String> ounitCodes);

@@ -28,7 +28,7 @@ class AuthenticationApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/rest/forward/ewp/authentication/test",
+                "/api/forward/ewp/authentication/test",
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", hostCode, "secret");

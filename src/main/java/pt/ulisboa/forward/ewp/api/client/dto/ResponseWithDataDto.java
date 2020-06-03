@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlSeeAlso(
     value = {
       AuthenticationTestResponseDto.class,
+      HeiIdsResponseDTO.class,
       InstitutionsResponse.class,
       OrganizationalUnitsApiSpecificationResponseDTO.class,
       OunitsResponse.class,

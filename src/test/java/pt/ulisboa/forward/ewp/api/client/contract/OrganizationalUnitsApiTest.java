@@ -31,7 +31,7 @@ class OrganizationalUnitsApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/rest/forward/ewp/ounits/specification?hei_id=" + heiId,
+                "/api/forward/ewp/ounits/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
@@ -59,7 +59,7 @@ class OrganizationalUnitsApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/rest/forward/ewp/ounits/specification?hei_id=" + heiId,
+                "/api/forward/ewp/ounits/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
@@ -82,7 +82,7 @@ class OrganizationalUnitsApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/rest/forward/ewp/ounits/specification?hei_id=" + heiId,
+                "/api/forward/ewp/ounits/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
@@ -110,7 +110,7 @@ class OrganizationalUnitsApiTest extends AbstractTest {
 
     MockClient mockClient =
         new MockClient()
-            .ok(HttpMethod.POST, "/rest/forward/ewp/ounits", marshallToXml(responseBody));
+            .ok(HttpMethod.POST, "/api/forward/ewp/ounits", marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
     OrganizationalUnitsApi client =
@@ -143,7 +143,7 @@ class OrganizationalUnitsApiTest extends AbstractTest {
 
     MockClient mockClient =
         new MockClient()
-            .ok(HttpMethod.POST, "/rest/forward/ewp/ounits", marshallToXml(responseBody));
+            .ok(HttpMethod.POST, "/api/forward/ewp/ounits", marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
     OrganizationalUnitsApi client =
