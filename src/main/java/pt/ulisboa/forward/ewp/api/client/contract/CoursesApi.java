@@ -60,7 +60,7 @@ public interface CoursesApi extends BaseApi {
       @Param("los_id") List<String> losIds,
       @Param("lois_before") LocalDate loisBefore,
       @Param("lois_after") LocalDate loisAfter,
-      @Param("lois_at_date") LocalDate loisAtDate);
+      @Param("los_at_date") LocalDate losAtDate);
 
   /** @requires losIds.size() <= getMaxLosIdsPerRequest(heiId) */
   default ResponseWithDataDto<CoursesResponse> findByLosIds(String heiId, List<String> losIds) {
@@ -75,7 +75,7 @@ public interface CoursesApi extends BaseApi {
       @Param("los_code") List<String> losCodes,
       @Param("lois_before") LocalDate loisBefore,
       @Param("lois_after") LocalDate loisAfter,
-      @Param("lois_at_date") LocalDate loisAtDate);
+      @Param("los_at_date") LocalDate losAtDate);
 
   /** @requires losCodes.size() <= getMaxLosCodesPerRequest(heiId) */
   default ResponseWithDataDto<CoursesResponse> findByLosCodes(String heiId, List<String> losCodes) {
