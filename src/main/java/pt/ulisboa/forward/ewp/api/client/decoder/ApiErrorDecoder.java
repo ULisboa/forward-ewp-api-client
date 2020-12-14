@@ -1,6 +1,6 @@
 package pt.ulisboa.forward.ewp.api.client.decoder;
 
-import eu.erasmuswithoutpaper.api.architecture.ErrorResponse;
+import eu.erasmuswithoutpaper.api.architecture.v1.ErrorResponseV1;
 import feign.FeignException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
@@ -63,8 +63,8 @@ public class ApiErrorDecoder implements ErrorDecoder {
             .orElse(false);
     if (hasDataObject) {
       @SuppressWarnings("unchecked")
-      ResponseWithDataDto<ErrorResponse> responseDto =
-          (ResponseWithDataDto<ErrorResponse>)
+      ResponseWithDataDto<ErrorResponseV1> responseDto =
+          (ResponseWithDataDto<ErrorResponseV1>)
               jaxbDecoder.decode(response, ResponseWithDataDto.class);
       return new RequestException(
           response.status(), responseDto.getMessages(), responseDto.getDataObject());

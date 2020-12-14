@@ -1,9 +1,9 @@
-package pt.ulisboa.forward.ewp.api.client.contract;
+package pt.ulisboa.forward.ewp.api.client.contract.ounits;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import eu.erasmuswithoutpaper.api.ounits.OunitsResponse;
-import eu.erasmuswithoutpaper.api.ounits.OunitsResponse.Ounit;
+import eu.erasmuswithoutpaper.api.ounits.v2.OunitsResponseV2;
+import eu.erasmuswithoutpaper.api.ounits.v2.OunitsResponseV2.Ounit;
 import feign.mock.HttpMethod;
 import feign.mock.MockClient;
 import feign.mock.MockTarget;
@@ -16,7 +16,7 @@ import pt.ulisboa.forward.ewp.api.client.dto.OrganizationalUnitsApiSpecification
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.factory.ApiClientFactory;
 
-class OrganizationalUnitsApiTest extends AbstractTest {
+class OrganizationalUnitsV2ApiTest extends AbstractTest {
 
   @Test
   public void testGetApiSpecification_ValidRequest_Success() throws JAXBException {
@@ -31,12 +31,12 @@ class OrganizationalUnitsApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/api/forward/ewp/ounits/specification?hei_id=" + heiId,
+                "/api/forward/ewp/ounits/v2/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    OrganizationalUnitsApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsApi.class));
+    OrganizationalUnitsV2Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsV2Api.class));
 
     ResponseWithDataDto<OrganizationalUnitsApiSpecificationResponseDTO> response =
         client.getApiSpecification(heiId);
@@ -59,12 +59,12 @@ class OrganizationalUnitsApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/api/forward/ewp/ounits/specification?hei_id=" + heiId,
+                "/api/forward/ewp/ounits/v2/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    OrganizationalUnitsApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsApi.class));
+    OrganizationalUnitsV2Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsV2Api.class));
 
     assertThat(client.getMaxOunitIdsPerRequest(heiId)).isEqualTo(1);
   }
@@ -82,12 +82,12 @@ class OrganizationalUnitsApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/api/forward/ewp/ounits/specification?hei_id=" + heiId,
+                "/api/forward/ewp/ounits/v2/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    OrganizationalUnitsApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsApi.class));
+    OrganizationalUnitsV2Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsV2Api.class));
 
     assertThat(client.getMaxOunitCodesPerRequest(heiId)).isEqualTo(2);
   }
@@ -98,25 +98,25 @@ class OrganizationalUnitsApiTest extends AbstractTest {
     String ounitId1 = "abc";
     String ounitId2 = "def";
 
-    OunitsResponse ounitsResponse = new OunitsResponse();
-    Ounit ounit1 = new OunitsResponse.Ounit();
+    OunitsResponseV2 ounitsResponse = new OunitsResponseV2();
+    Ounit ounit1 = new OunitsResponseV2.Ounit();
     ounit1.setOunitId(ounitId1);
     ounitsResponse.getOunit().add(ounit1);
-    Ounit ounit2 = new OunitsResponse.Ounit();
+    Ounit ounit2 = new OunitsResponseV2.Ounit();
     ounit2.setOunitId(ounitId2);
     ounitsResponse.getOunit().add(ounit2);
-    ResponseWithDataDto<OunitsResponse> responseBody =
+    ResponseWithDataDto<OunitsResponseV2> responseBody =
         ResponseWithDataDto.createWithoutMessages(ounitsResponse);
 
     MockClient mockClient =
         new MockClient()
-            .ok(HttpMethod.POST, "/api/forward/ewp/ounits", marshallToXml(responseBody));
+            .ok(HttpMethod.POST, "/api/forward/ewp/ounits/v2", marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    OrganizationalUnitsApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsApi.class));
+    OrganizationalUnitsV2Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsV2Api.class));
 
-    ResponseWithDataDto<OunitsResponse> response =
+    ResponseWithDataDto<OunitsResponseV2> response =
         client.findByIds(heiId, Arrays.asList(ounitId1, ounitId2));
     assertThat(response).isNotNull();
     assertThat(response.getDataObject()).isNotNull();
@@ -131,25 +131,25 @@ class OrganizationalUnitsApiTest extends AbstractTest {
     String ounitCode1 = "abc";
     String ounitCode2 = "def";
 
-    OunitsResponse ounitsResponse = new OunitsResponse();
-    Ounit ounit1 = new OunitsResponse.Ounit();
+    OunitsResponseV2 ounitsResponse = new OunitsResponseV2();
+    Ounit ounit1 = new OunitsResponseV2.Ounit();
     ounit1.setOunitCode(ounitCode1);
     ounitsResponse.getOunit().add(ounit1);
-    Ounit ounit2 = new OunitsResponse.Ounit();
+    Ounit ounit2 = new OunitsResponseV2.Ounit();
     ounit2.setOunitCode(ounitCode2);
     ounitsResponse.getOunit().add(ounit2);
-    ResponseWithDataDto<OunitsResponse> responseBody =
+    ResponseWithDataDto<OunitsResponseV2> responseBody =
         ResponseWithDataDto.createWithoutMessages(ounitsResponse);
 
     MockClient mockClient =
         new MockClient()
-            .ok(HttpMethod.POST, "/api/forward/ewp/ounits", marshallToXml(responseBody));
+            .ok(HttpMethod.POST, "/api/forward/ewp/ounits/v2", marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    OrganizationalUnitsApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsApi.class));
+    OrganizationalUnitsV2Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(OrganizationalUnitsV2Api.class));
 
-    ResponseWithDataDto<OunitsResponse> response =
+    ResponseWithDataDto<OunitsResponseV2> response =
         client.findByIds(heiId, Arrays.asList(ounitCode1, ounitCode2));
     assertThat(response).isNotNull();
     assertThat(response.getDataObject()).isNotNull();

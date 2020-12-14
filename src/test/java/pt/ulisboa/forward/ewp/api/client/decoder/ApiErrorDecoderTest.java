@@ -3,7 +3,7 @@ package pt.ulisboa.forward.ewp.api.client.decoder;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import eu.erasmuswithoutpaper.api.architecture.ErrorResponse;
+import eu.erasmuswithoutpaper.api.architecture.v1.ErrorResponseV1;
 import feign.Feign;
 import feign.RequestLine;
 import feign.Response;
@@ -34,8 +34,8 @@ class ApiErrorDecoderTest extends AbstractTest {
   public void testErrorDecoder_ClientError_WithDataObject() throws JAXBException {
     ClientConfiguration.configure("", "host-code", "secret");
 
-    ResponseWithDataDto<ErrorResponse> responseWithDataDto =
-        createResponseDtoWithOneErrorMessageAndData("Test", new ErrorResponse());
+    ResponseWithDataDto<ErrorResponseV1> responseWithDataDto =
+        createResponseDtoWithOneErrorMessageAndData("Test", new ErrorResponseV1());
 
     Map<String, Collection<String>> headers = new HashMap<>();
     headers.put(

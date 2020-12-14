@@ -1,10 +1,10 @@
 package pt.ulisboa.forward.ewp.api.client.dto;
 
-import eu.erasmuswithoutpaper.api.architecture.ErrorResponse;
-import eu.erasmuswithoutpaper.api.courses.CoursesResponse;
-import eu.erasmuswithoutpaper.api.courses.replication.CourseReplicationResponse;
-import eu.erasmuswithoutpaper.api.institutions.InstitutionsResponse;
-import eu.erasmuswithoutpaper.api.ounits.OunitsResponse;
+import eu.erasmuswithoutpaper.api.architecture.v1.ErrorResponseV1;
+import eu.erasmuswithoutpaper.api.courses.replication.v1.CourseReplicationResponseV1;
+import eu.erasmuswithoutpaper.api.courses.v0.CoursesResponseV0;
+import eu.erasmuswithoutpaper.api.institutions.v2.InstitutionsResponseV2;
+import eu.erasmuswithoutpaper.api.ounits.v2.OunitsResponseV2;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyElement;
@@ -20,13 +20,13 @@ import javax.xml.bind.annotation.XmlType;
     value = {
       AuthenticationTestResponseDto.class,
       HeiIdsResponseDTO.class,
-      InstitutionsResponse.class,
+      InstitutionsResponseV2.class,
       OrganizationalUnitsApiSpecificationResponseDTO.class,
-      OunitsResponse.class,
-      CourseReplicationResponse.class,
+      OunitsResponseV2.class,
+      CourseReplicationResponseV1.class,
       CoursesApiSpecificationResponseDTO.class,
-      CoursesResponse.class,
-      ErrorResponse.class
+      CoursesResponseV0.class,
+      ErrorResponseV1.class
     })
 public class ResponseWithDataDto<T> extends ResponseDto {
 

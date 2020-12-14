@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pt.ulisboa.forward.ewp.api.client.config.ClientConfiguration;
-import pt.ulisboa.forward.ewp.api.client.contract.InstitutionsApi;
+import pt.ulisboa.forward.ewp.api.client.contract.institutions.InstitutionsApi;
 
 class ApiClientFactoryTest {
 

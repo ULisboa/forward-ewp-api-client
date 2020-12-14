@@ -1,9 +1,9 @@
-package pt.ulisboa.forward.ewp.api.client.contract;
+package pt.ulisboa.forward.ewp.api.client.contract.courses;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import eu.erasmuswithoutpaper.api.courses.CoursesResponse;
-import eu.erasmuswithoutpaper.api.courses.CoursesResponse.LearningOpportunitySpecification;
+import eu.erasmuswithoutpaper.api.courses.v0.CoursesResponseV0;
+import eu.erasmuswithoutpaper.api.courses.v0.CoursesResponseV0.LearningOpportunitySpecification;
 import feign.mock.HttpMethod;
 import feign.mock.MockClient;
 import feign.mock.MockTarget;
@@ -16,7 +16,7 @@ import pt.ulisboa.forward.ewp.api.client.dto.CoursesApiSpecificationResponseDTO;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.factory.ApiClientFactory;
 
-class CoursesApiTest extends AbstractTest {
+class CoursesV0ApiTest extends AbstractTest {
 
   @Test
   public void testGetApiSpecification_ValidRequest_Success() throws JAXBException {
@@ -31,12 +31,12 @@ class CoursesApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/api/forward/ewp/courses/specification?hei_id=" + heiId,
+                "/api/forward/ewp/courses/v0/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    CoursesApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesApi.class));
+    CoursesV0Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesV0Api.class));
 
     ResponseWithDataDto<CoursesApiSpecificationResponseDTO> response =
         client.getApiSpecification(heiId);
@@ -59,12 +59,12 @@ class CoursesApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/api/forward/ewp/courses/specification?hei_id=" + heiId,
+                "/api/forward/ewp/courses/v0/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    CoursesApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesApi.class));
+    CoursesV0Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesV0Api.class));
 
     assertThat(client.getMaxLosIdsPerRequest(heiId)).isEqualTo(1);
   }
@@ -82,12 +82,12 @@ class CoursesApiTest extends AbstractTest {
         new MockClient()
             .ok(
                 HttpMethod.GET,
-                "/api/forward/ewp/courses/specification?hei_id=" + heiId,
+                "/api/forward/ewp/courses/v0/specification?hei_id=" + heiId,
                 marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    CoursesApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesApi.class));
+    CoursesV0Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesV0Api.class));
 
     assertThat(client.getMaxLosCodesPerRequest(heiId)).isEqualTo(2);
   }
@@ -98,25 +98,27 @@ class CoursesApiTest extends AbstractTest {
     String losId1 = "abc";
     String losId2 = "def";
 
-    CoursesResponse coursesResponse = new CoursesResponse();
-    LearningOpportunitySpecification los1 = new CoursesResponse.LearningOpportunitySpecification();
+    CoursesResponseV0 coursesResponse = new CoursesResponseV0();
+    LearningOpportunitySpecification los1 =
+        new CoursesResponseV0.LearningOpportunitySpecification();
     los1.setLosId(losId1);
     coursesResponse.getLearningOpportunitySpecification().add(los1);
-    LearningOpportunitySpecification los2 = new CoursesResponse.LearningOpportunitySpecification();
+    LearningOpportunitySpecification los2 =
+        new CoursesResponseV0.LearningOpportunitySpecification();
     los2.setLosId(losId2);
     coursesResponse.getLearningOpportunitySpecification().add(los2);
-    ResponseWithDataDto<CoursesResponse> responseBody =
+    ResponseWithDataDto<CoursesResponseV0> responseBody =
         ResponseWithDataDto.createWithoutMessages(coursesResponse);
 
     MockClient mockClient =
         new MockClient()
-            .ok(HttpMethod.POST, "/api/forward/ewp/courses", marshallToXml(responseBody));
+            .ok(HttpMethod.POST, "/api/forward/ewp/courses/v0", marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    CoursesApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesApi.class));
+    CoursesV0Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesV0Api.class));
 
-    ResponseWithDataDto<CoursesResponse> response =
+    ResponseWithDataDto<CoursesResponseV0> response =
         client.findByLosIds(heiId, Arrays.asList(losId1, losId2));
     assertThat(response).isNotNull();
     assertThat(response.getDataObject()).isNotNull();
@@ -133,25 +135,27 @@ class CoursesApiTest extends AbstractTest {
     String losCode1 = "abc";
     String losCode2 = "def";
 
-    CoursesResponse coursesResponse = new CoursesResponse();
-    LearningOpportunitySpecification los1 = new CoursesResponse.LearningOpportunitySpecification();
+    CoursesResponseV0 coursesResponse = new CoursesResponseV0();
+    LearningOpportunitySpecification los1 =
+        new CoursesResponseV0.LearningOpportunitySpecification();
     los1.setLosCode(losCode1);
     coursesResponse.getLearningOpportunitySpecification().add(los1);
-    LearningOpportunitySpecification los2 = new CoursesResponse.LearningOpportunitySpecification();
+    LearningOpportunitySpecification los2 =
+        new CoursesResponseV0.LearningOpportunitySpecification();
     los2.setLosCode(losCode2);
     coursesResponse.getLearningOpportunitySpecification().add(los2);
-    ResponseWithDataDto<CoursesResponse> responseBody =
+    ResponseWithDataDto<CoursesResponseV0> responseBody =
         ResponseWithDataDto.createWithoutMessages(coursesResponse);
 
     MockClient mockClient =
         new MockClient()
-            .ok(HttpMethod.POST, "/api/forward/ewp/courses", marshallToXml(responseBody));
+            .ok(HttpMethod.POST, "/api/forward/ewp/courses/v0", marshallToXml(responseBody));
 
     ClientConfiguration.configure("", "", "secret");
-    CoursesApi client =
-        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesApi.class));
+    CoursesV0Api client =
+        ApiClientFactory.createClient(mockClient, new MockTarget<>(CoursesV0Api.class));
 
-    ResponseWithDataDto<CoursesResponse> response =
+    ResponseWithDataDto<CoursesResponseV0> response =
         client.findByLosCodes(heiId, Arrays.asList(losCode1, losCode2));
     assertThat(response).isNotNull();
     assertThat(response.getDataObject()).isNotNull();
