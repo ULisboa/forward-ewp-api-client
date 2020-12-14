@@ -11,6 +11,9 @@ import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
+import pt.ulisboa.forward.ewp.api.client.dto.auth.AuthenticationTestResponseDto;
+import pt.ulisboa.forward.ewp.api.client.dto.courses.CoursesApiSpecificationResponseDTO;
+import pt.ulisboa.forward.ewp.api.client.dto.ounits.OrganizationalUnitsApiSpecificationResponseDTO;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")

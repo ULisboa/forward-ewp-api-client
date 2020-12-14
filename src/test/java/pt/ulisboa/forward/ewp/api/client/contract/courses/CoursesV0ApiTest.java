@@ -12,8 +12,8 @@ import javax.xml.bind.JAXBException;
 import org.junit.jupiter.api.Test;
 import pt.ulisboa.forward.ewp.api.client.AbstractTest;
 import pt.ulisboa.forward.ewp.api.client.config.ClientConfiguration;
-import pt.ulisboa.forward.ewp.api.client.dto.CoursesApiSpecificationResponseDTO;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
+import pt.ulisboa.forward.ewp.api.client.dto.courses.CoursesApiSpecificationResponseDTO;
 import pt.ulisboa.forward.ewp.api.client.factory.ApiClientFactory;
 
 class CoursesV0ApiTest extends AbstractTest {

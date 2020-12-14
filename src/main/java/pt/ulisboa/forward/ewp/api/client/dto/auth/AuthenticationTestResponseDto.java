@@ -1,4 +1,4 @@
-package pt.ulisboa.forward.ewp.api.client.dto;
+package pt.ulisboa.forward.ewp.api.client.dto.auth;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

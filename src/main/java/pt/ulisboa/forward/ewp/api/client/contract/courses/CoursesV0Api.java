@@ -7,8 +7,8 @@ import feign.RequestLine;
 import java.time.LocalDate;
 import java.util.List;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
-import pt.ulisboa.forward.ewp.api.client.dto.CoursesApiSpecificationResponseDTO;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
+import pt.ulisboa.forward.ewp.api.client.dto.courses.CoursesApiSpecificationResponseDTO;
 
 /** Contract interface for the Courses V0 Forward EWP API. */
 public interface CoursesV0Api extends BaseApi {

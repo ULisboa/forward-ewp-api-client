@@ -2,8 +2,8 @@ package pt.ulisboa.forward.ewp.api.client.contract.auth;
 
 import feign.RequestLine;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
-import pt.ulisboa.forward.ewp.api.client.dto.AuthenticationTestResponseDto;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
+import pt.ulisboa.forward.ewp.api.client.dto.auth.AuthenticationTestResponseDto;
 
 /**
  * Contract interface for the Authentication Forward EWP API. This API actually does not forward

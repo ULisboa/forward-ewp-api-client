@@ -6,8 +6,8 @@ import feign.Param;
 import feign.RequestLine;
 import java.util.List;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
-import pt.ulisboa.forward.ewp.api.client.dto.OrganizationalUnitsApiSpecificationResponseDTO;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
+import pt.ulisboa.forward.ewp.api.client.dto.ounits.OrganizationalUnitsApiSpecificationResponseDTO;
 
 /**
  * Contract interface for the Organizational Units V2 Forward EWP API.
