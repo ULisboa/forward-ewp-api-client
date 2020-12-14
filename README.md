@@ -155,10 +155,14 @@ Currently, the supported Forward EWP APIs and corresponding contract interfaces 
 | Name of the API  | Contract interface  |
 |---|---|
 | Authentication  | AuthenticationApi  |
-| Institutions  | InstitutionsApi  |
-| Organizational Units  | OrganizationalUnitsApi  |
-| Simple Course Replication  | SimpleCourseReplicationApi  |
-| Courses  | CoursesApi  |
+| Institutions V2  | InstitutionsV2Api  |
+| Organizational Units V2  | OrganizationalUnitsV2Api  |
+| Simple Course Replication V1  | SimpleCourseReplicationV1Api  |
+| Courses V0  | CoursesV0Api  |
+| InterInstitutional Agreements V3  | InterInstitutionalAgreementsV3Api  |
+| InterInstitutional Agreements V4 | InterInstitutionalAgreementsV4Api  |
+| Outgoing Mobilities V1 | OutgoingMobilitiesV1  |
+| Incoming Mobilities V1 | IncomingMobilitiesV1  |
 
 The contract interfaces contain Javadoc comments that are relevant to read before using them.
 
