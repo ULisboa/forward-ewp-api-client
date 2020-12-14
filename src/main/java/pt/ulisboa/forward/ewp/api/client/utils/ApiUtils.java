@@ -30,6 +30,11 @@ public class ApiUtils {
     return getSupportedMajorVersionsByApi("courses/replication", heiId);
   }
 
+  public static Collection<Integer> getSupportedMajorVersionsOfInterInstitutionalAgreementsApi(
+      String heiId) {
+    return getSupportedMajorVersionsByApi("iias", heiId);
+  }
+
   public static Collection<Integer> getSupportedMajorVersionsByApi(
       String apiLocalName, String heiId) {
     GeneralApi client = ApiClientFactory.createClient(GeneralApi.class);
