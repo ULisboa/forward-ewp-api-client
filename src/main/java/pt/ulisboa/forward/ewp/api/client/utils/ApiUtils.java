@@ -10,7 +10,8 @@ import pt.ulisboa.forward.ewp.api.client.factory.ApiClientFactory;
 
 public class ApiUtils {
 
-  private ApiUtils() {}
+  private ApiUtils() {
+  }
 
   public static Collection<Integer> getSupportedMajorVersionsOfInstitutionsApi(String heiId) {
     return getSupportedMajorVersionsByApi("institutions", heiId);
@@ -18,7 +19,7 @@ public class ApiUtils {
 
   public static Collection<Integer> getSupportedMajorVersionsOfOrganizationalUnitsApi(
       String heiId) {
-    return getSupportedMajorVersionsByApi("ounits", heiId);
+    return getSupportedMajorVersionsByApi("organizational-units", heiId);
   }
 
   public static Collection<Integer> getSupportedMajorVersionsOfCoursesApi(String heiId) {
@@ -27,7 +28,7 @@ public class ApiUtils {
 
   public static Collection<Integer> getSupportedMajorVersionsOfSimpleCourseReplicationApi(
       String heiId) {
-    return getSupportedMajorVersionsByApi("courses/replication", heiId);
+    return getSupportedMajorVersionsByApi("simple-course-replication", heiId);
   }
 
   public static Collection<Integer> getSupportedMajorVersionsOfInterInstitutionalAgreementsApi(
@@ -57,12 +58,12 @@ public class ApiUtils {
     /**
      * Returns the list of major versions supported by an institution for a given API.
      *
-     * @param api API to obtain the list of major versions supported by institution.
      * @param heiId HEI ID of an institution.
+     * @param api   API to obtain the list of major versions supported by institution.
      * @return A response whose data is the list of major versions supported by an institution for a
-     *     given API.
+     * given API.
      */
-    @RequestLine("GET /api/forward/ewp/{api}/versions/supported?hei_id={heiId}")
+    @RequestLine("GET /api/forward/ewp/apis/{heiId}/versions/supported?api={api}")
     ResponseWithDataDto<SupportedMajorVersionsResponseDTO> getMajorVersionsSupportedByApi(
         @Param("api") String api, @Param("heiId") String heiId);
   }
