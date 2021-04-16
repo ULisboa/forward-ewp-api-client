@@ -36,6 +36,11 @@ public class ApiUtils {
     return getSupportedMajorVersionsByApi("iias", heiId);
   }
 
+  public static Collection<Integer> getSupportedMajorVersionsOfInterInstitutionalAgreementApprovalApi(
+      String heiId) {
+    return getSupportedMajorVersionsByApi("iias-approval", heiId);
+  }
+
   public static Collection<Integer> getSupportedMajorVersionsOfOutgoingMobilitiesApi(String heiId) {
     return getSupportedMajorVersionsByApi("omobilities", heiId);
   }
