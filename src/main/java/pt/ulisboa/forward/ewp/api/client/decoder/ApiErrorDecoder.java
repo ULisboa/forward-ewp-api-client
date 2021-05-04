@@ -3,10 +3,8 @@ package pt.ulisboa.forward.ewp.api.client.decoder;
 import eu.erasmuswithoutpaper.api.architecture.v1.ErrorResponseV1;
 import feign.FeignException;
 import feign.Response;
+import feign.codec.Decoder;
 import feign.codec.ErrorDecoder;
-import feign.jaxb.JAXBContextFactory;
-import feign.jaxb.JAXBContextFactory.Builder;
-import feign.jaxb.JAXBDecoder;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,20 +14,15 @@ import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto.Message;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.exception.ErrorDecoderException;
 import pt.ulisboa.forward.ewp.api.client.exception.RequestException;
+import pt.ulisboa.forward.ewp.api.client.utils.EwpJaxbDecoder;
 import pt.ulisboa.forward.ewp.api.client.utils.HttpConstants;
 
 public class ApiErrorDecoder implements ErrorDecoder {
 
-  private JAXBDecoder jaxbDecoder;
+  private final Decoder decoder;
 
   public ApiErrorDecoder() {
-    this.initJaxbDecoder();
-  }
-
-  void initJaxbDecoder() {
-    JAXBContextFactory jaxbContextFactory =
-        new Builder().withMarshallerJAXBEncoding("UTF-8").build();
-    this.jaxbDecoder = new JAXBDecoder(jaxbContextFactory);
+    this.decoder = new EwpJaxbDecoder();
   }
 
   @Override
@@ -65,11 +58,11 @@ public class ApiErrorDecoder implements ErrorDecoder {
       @SuppressWarnings("unchecked")
       ResponseWithDataDto<ErrorResponseV1> responseDto =
           (ResponseWithDataDto<ErrorResponseV1>)
-              jaxbDecoder.decode(response, ResponseWithDataDto.class);
+              decoder.decode(response, ResponseWithDataDto.class);
       return new RequestException(
           response.status(), responseDto.getMessages(), responseDto.getDataObject());
     } else {
-      ResponseDto responseDto = (ResponseDto) jaxbDecoder.decode(response, ResponseDto.class);
+      ResponseDto responseDto = (ResponseDto) decoder.decode(response, ResponseDto.class);
       List<Message> messages =
           responseDto != null ? responseDto.getMessages() : Collections.emptyList();
       return new RequestException(response.status(), messages);
@@ -77,7 +70,7 @@ public class ApiErrorDecoder implements ErrorDecoder {
   }
 
   Exception resolveServerErrorToException(Response response) throws IOException {
-    ResponseDto responseDto = (ResponseDto) jaxbDecoder.decode(response, ResponseDto.class);
+    ResponseDto responseDto = (ResponseDto) decoder.decode(response, ResponseDto.class);
     List<Message> messages =
         responseDto != null ? responseDto.getMessages() : Collections.emptyList();
     return new RequestException(response.status(), messages);

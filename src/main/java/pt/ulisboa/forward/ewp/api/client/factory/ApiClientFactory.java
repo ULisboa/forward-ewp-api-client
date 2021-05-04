@@ -7,19 +7,21 @@ import feign.Logger.Level;
 import feign.Target;
 import feign.Target.HardCodedTarget;
 import feign.form.FormEncoder;
-import feign.jaxb.JAXBContextFactory;
-import feign.jaxb.JAXBDecoder;
 import feign.slf4j.Slf4jLogger;
 import javax.net.ssl.HttpsURLConnection;
 import pt.ulisboa.forward.ewp.api.client.config.ClientConfiguration;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.decoder.ApiErrorDecoder;
 import pt.ulisboa.forward.ewp.api.client.interceptor.JwtRequestInterceptor;
+import pt.ulisboa.forward.ewp.api.client.utils.EwpJaxbDecoder;
 
-/** Factory that provides client instances for specific Forward EWP APIs. */
+/**
+ * Factory that provides client instances for specific Forward EWP APIs.
+ */
 public class ApiClientFactory {
 
-  private ApiClientFactory() {}
+  private ApiClientFactory() {
+  }
 
   /**
    * Creates a client to a specific Forward EWP API.
@@ -37,17 +39,13 @@ public class ApiClientFactory {
   public static <T extends BaseApi> T createClient(Client httpClient, Target<T> target) {
     return Feign.builder()
         .encoder(new FormEncoder())
-        .decoder(new JAXBDecoder(getJAXBContextFactory()))
+        .decoder(new EwpJaxbDecoder())
         .requestInterceptor(new JwtRequestInterceptor())
         .client(httpClient)
         .errorDecoder(new ApiErrorDecoder())
         .logger(new Slf4jLogger())
         .logLevel(Level.BASIC)
         .target(target);
-  }
-
-  private static JAXBContextFactory getJAXBContextFactory() {
-    return new JAXBContextFactory.Builder().withMarshallerJAXBEncoding("UTF-8").build();
   }
 
   private static ClientConfiguration getConfiguration() {
