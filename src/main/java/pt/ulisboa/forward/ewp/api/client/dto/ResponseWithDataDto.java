@@ -3,6 +3,12 @@ package pt.ulisboa.forward.ewp.api.client.dto;
 import eu.erasmuswithoutpaper.api.architecture.v1.ErrorResponseV1;
 import eu.erasmuswithoutpaper.api.courses.replication.v1.CourseReplicationResponseV1;
 import eu.erasmuswithoutpaper.api.courses.v0.CoursesResponseV0;
+import eu.erasmuswithoutpaper.api.factsheet.v1.FactsheetResponseV1;
+import eu.erasmuswithoutpaper.api.iias.approval.v1.IiasApprovalResponseV1;
+import eu.erasmuswithoutpaper.api.iias.v3.endpoints.IiasGetResponseV3;
+import eu.erasmuswithoutpaper.api.iias.v3.endpoints.IiasIndexResponseV3;
+import eu.erasmuswithoutpaper.api.iias.v4.endpoints.IiasGetResponseV4;
+import eu.erasmuswithoutpaper.api.iias.v4.endpoints.IiasIndexResponseV4;
 import eu.erasmuswithoutpaper.api.institutions.v2.InstitutionsResponseV2;
 import eu.erasmuswithoutpaper.api.ounits.v2.OunitsResponseV2;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,6 +19,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import pt.ulisboa.forward.ewp.api.client.dto.auth.AuthenticationTestResponseDto;
 import pt.ulisboa.forward.ewp.api.client.dto.courses.CoursesApiSpecificationResponseDTO;
+import pt.ulisboa.forward.ewp.api.client.dto.iias.InterInstitutionalAgreementsApiSpecificationResponseDTO;
+import pt.ulisboa.forward.ewp.api.client.dto.iias.approval.InterInstitutionalAgreementsApprovalApiSpecificationResponseDTO;
 import pt.ulisboa.forward.ewp.api.client.dto.ounits.OrganizationalUnitsApiSpecificationResponseDTO;
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -21,15 +29,23 @@ import pt.ulisboa.forward.ewp.api.client.dto.ounits.OrganizationalUnitsApiSpecif
 // NOTE: All admissible data types must be registered here
 @XmlSeeAlso(
     value = {
-      AuthenticationTestResponseDto.class,
-      HeiIdsResponseDTO.class,
-      InstitutionsResponseV2.class,
-      OrganizationalUnitsApiSpecificationResponseDTO.class,
-      OunitsResponseV2.class,
-      CourseReplicationResponseV1.class,
-      CoursesApiSpecificationResponseDTO.class,
-      CoursesResponseV0.class,
-      ErrorResponseV1.class
+        AuthenticationTestResponseDto.class,
+        HeiIdsResponseDTO.class,
+        InstitutionsResponseV2.class,
+        OrganizationalUnitsApiSpecificationResponseDTO.class,
+        OunitsResponseV2.class,
+        CourseReplicationResponseV1.class,
+        CoursesApiSpecificationResponseDTO.class,
+        CoursesResponseV0.class,
+        InterInstitutionalAgreementsApiSpecificationResponseDTO.class,
+        IiasIndexResponseV3.class,
+        IiasIndexResponseV4.class,
+        IiasGetResponseV3.class,
+        IiasGetResponseV4.class,
+        InterInstitutionalAgreementsApprovalApiSpecificationResponseDTO.class,
+        IiasApprovalResponseV1.class,
+        FactsheetResponseV1.class,
+        ErrorResponseV1.class
     })
 public class ResponseWithDataDto<T> extends ResponseDto {
 
