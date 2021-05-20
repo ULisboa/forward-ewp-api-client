@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>pt.ulisboa</groupId>
   <artifactId>forward-ewp-api-client</artifactId>
-  <version>0.6.2-SNAPSHOT</version>
+  <version>0.7.0</version>
   <packaging>jar</packaging>
 
   <name>Forward EWP API Client for an EWP Node</name>
@@ -36,7 +34,7 @@
     <developerConnection>scm:git:git@github.com:ULisboa/forward-ewp-api-client.git
     </developerConnection>
     <url>http://github.com/ULisboa/forward-ewp-api-client/tree/master</url>
-    <tag>HEAD</tag>
+    <tag>0.7.0</tag>
   </scm>
 
   <properties>
