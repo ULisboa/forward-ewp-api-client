@@ -1,4 +1,4 @@
-package pt.ulisboa.forward.ewp.api.client.contract.factsheet;
+package pt.ulisboa.forward.ewp.api.client.contract.factsheets;
 
 import eu.erasmuswithoutpaper.api.factsheet.v1.FactsheetResponseV1;
 import feign.Param;

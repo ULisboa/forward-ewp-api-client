@@ -1,4 +1,4 @@
-package pt.ulisboa.forward.ewp.api.client.contract.factsheet;
+package pt.ulisboa.forward.ewp.api.client.contract.factsheets;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
