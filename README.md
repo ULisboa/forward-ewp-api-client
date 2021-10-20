@@ -161,8 +161,9 @@ Currently, the supported Forward EWP APIs and corresponding contract interfaces 
 | Courses V0  | CoursesV0Api  |
 | InterInstitutional Agreements V3  | InterInstitutionalAgreementsV3Api  |
 | InterInstitutional Agreements V4 | InterInstitutionalAgreementsV4Api  |
-| Outgoing Mobilities V1 | OutgoingMobilitiesV1  |
-| Incoming Mobilities V1 | IncomingMobilitiesV1  |
+| Outgoing Mobilities V1 | OutgoingMobilitiesV1Api  |
+| Outgoing Mobility Learning Agreements V1 | OutgoingMobilityLearningAgreementsV1Api  |
+| Incoming Mobilities V1 | IncomingMobilitiesV1Api  |
 
 The contract interfaces contain Javadoc comments that are relevant to read before using them.
 
