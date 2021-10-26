@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>pt.ulisboa</groupId>
@@ -42,6 +44,8 @@
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+    <feign.version>11.6</feign.version>
+
     <!-- Sonar properties -->
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
@@ -52,17 +56,17 @@
     <dependency>
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-core</artifactId>
-      <version>11.0</version>
+      <version>${feign.version}</version>
     </dependency>
     <dependency>
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-slf4j</artifactId>
-      <version>11.0</version>
+      <version>${feign.version}</version>
     </dependency>
     <dependency>
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-jaxb</artifactId>
-      <version>11.0</version>
+      <version>${feign.version}</version>
     </dependency>
     <dependency>
       <groupId>io.github.openfeign.form</groupId>
@@ -95,7 +99,7 @@
     <dependency>
       <groupId>pt.ulisboa</groupId>
       <artifactId>ewp-connector-api</artifactId>
-      <version>3.2.0</version>
+      <version>3.3.1</version>
     </dependency>
 
     <dependency>
@@ -131,7 +135,7 @@
     <dependency>
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-mock</artifactId>
-      <version>11.0</version>
+      <version>${feign.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
