@@ -8,11 +8,11 @@ import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto;
 
 /**
- * Contract interface for the InterInstitutional Agreements CNR V2 Forward EWP API.
+ * Contract interface for the InterInstitutional Agreements CNR Forward EWP API.
  */
-public interface InterInstitutionalAgreementCnrV2Api extends BaseApi {
+public interface InterInstitutionalAgreementCnrApi extends BaseApi {
 
-  @RequestLine("POST /api/forward/ewp/iias/cnr/v2")
+  @RequestLine("POST /api/forward/ewp/iias/cnr")
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseDto sendChangeNotification(
       @Param("notifier_hei_id") String notifierHeiId,

@@ -7,11 +7,11 @@ import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto;
 
 /**
- * Contract interface for the InterInstitutional Agreement Approval CNR V1 Forward EWP API.
+ * Contract interface for the InterInstitutional Agreement Approval CNR Forward EWP API.
  */
-public interface InterInstitutionalAgreementApprovalCnrV1Api extends BaseApi {
+public interface InterInstitutionalAgreementApprovalCnrApi extends BaseApi {
 
-  @RequestLine("POST /api/forward/ewp/iias/approval/cnr/v1")
+  @RequestLine("POST /api/forward/ewp/iias/approval/cnr")
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseDto sendChangeNotification(
       @Param("approving_hei_id") String approvingHeiId,

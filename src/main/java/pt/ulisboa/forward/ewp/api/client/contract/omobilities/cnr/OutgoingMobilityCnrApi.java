@@ -1,4 +1,4 @@
-package pt.ulisboa.forward.ewp.api.client.contract.omobilities.las.cnr;
+package pt.ulisboa.forward.ewp.api.client.contract.omobilities.cnr;
 
 import feign.Headers;
 import feign.Param;
@@ -8,11 +8,11 @@ import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto;
 
 /**
- * Contract interface for the Outgoing Mobility Learning Agreement CNR V1 Forward EWP API.
+ * Contract interface for the Outgoing Mobility CNR Forward EWP API.
  */
-public interface OutgoingMobilityLearningAgreementCnrV1Api extends BaseApi {
+public interface OutgoingMobilityCnrApi extends BaseApi {
 
-  @RequestLine("POST /api/forward/ewp/omobilities/las/cnr/v1")
+  @RequestLine("POST /api/forward/ewp/omobilities/cnr")
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseDto sendChangeNotification(
       @Param("sending_hei_id") String sendingHeiId,

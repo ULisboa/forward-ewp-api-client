@@ -37,19 +37,9 @@ public class ApiUtils {
     return getSupportedMajorVersionsByApi("iias", heiId);
   }
 
-  public static Collection<Integer> getSupportedMajorVersionsOfInterInstitutionalAgreementCnrApi(
-      String heiId) {
-    return getSupportedMajorVersionsByApi("iia-cnr", heiId);
-  }
-
   public static Collection<Integer> getSupportedMajorVersionsOfInterInstitutionalAgreementApprovalApi(
       String heiId) {
     return getSupportedMajorVersionsByApi("iias-approval", heiId);
-  }
-
-  public static Collection<Integer> getSupportedMajorVersionsOfInterInstitutionalAgreementApprovalCnrApi(
-      String heiId) {
-    return getSupportedMajorVersionsByApi("iia-approval-cnr", heiId);
   }
 
   public static Collection<Integer> getSupportedMajorVersionsOfFactsheetsApi(
@@ -61,19 +51,9 @@ public class ApiUtils {
     return getSupportedMajorVersionsByApi("omobilities", heiId);
   }
 
-  public static Collection<Integer> getSupportedMajorVersionsOfOutgoingMobilityCnrApi(
-      String heiId) {
-    return getSupportedMajorVersionsByApi("omobility-cnr", heiId);
-  }
-
   public static Collection<Integer> getSupportedMajorVersionsOfOutgoingMobilityLearningAgreementsApi(
       String heiId) {
     return getSupportedMajorVersionsByApi("omobility-las", heiId);
-  }
-
-  public static Collection<Integer> getSupportedMajorVersionsOfOutgoingMobilityLearningAgreementCnrApi(
-      String heiId) {
-    return getSupportedMajorVersionsByApi("omobility-la-cnr", heiId);
   }
 
   public static Collection<Integer> getSupportedMajorVersionsOfIncomingMobilitiesApi(String heiId) {
