@@ -9,9 +9,25 @@ import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto;
 
 /**
  * Contract interface for the Incoming Mobility CNR Forward EWP API.
+ *
+ * @see <a href="https://github.com/erasmus-without-paper/ewp-specs-api-imobility-cnr/tree/stable-v1">Specification</a>
  */
 public interface IncomingMobilityCnrApi extends BaseApi {
 
+  /**
+   * Send a change notification to the sendingHeiId. The notification may or may not succeed due to
+   * miscellaneous reasons.
+   *
+   * @param sendingHeiId        Identifier of the sending HEI - the target of the current change
+   *                            notification.
+   * @param receivingHeiId      Identifier of the receiving HEI - the master of the Incoming
+   *                            Mobility objects which just have been changed.
+   * @param outgoingMobilityIds A list of identifiers of Outgoing Mobility objects. These identify
+   *                            the Mobility objects which have been recently updated on the
+   *                            caller's side.
+   * @return A response indicating that the change notification is scheduled to be sent by the EWP
+   * Node.
+   */
   @RequestLine("POST /api/forward/ewp/imobilities/cnr")
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseDto sendChangeNotification(
