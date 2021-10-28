@@ -60,6 +60,11 @@ public class ApiUtils {
     return getSupportedMajorVersionsByApi("imobilities", heiId);
   }
 
+  public static Collection<Integer> getSupportedMajorVersionsOfIncomingMobilityToRsApi(
+      String heiId) {
+    return getSupportedMajorVersionsByApi("imobility-tors", heiId);
+  }
+
   public static Collection<Integer> getSupportedMajorVersionsByApi(
       String apiLocalName, String heiId) {
     GeneralApi client = ApiClientFactory.createClient(GeneralApi.class);

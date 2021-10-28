@@ -171,6 +171,7 @@ Currently, the supported Forward EWP APIs and corresponding contract interfaces 
 | Outgoing Mobility Learning Agreement CNR V1 | OutgoingMobilityLearningAgreementCnrV1Api  |
 | Incoming Mobilities V1 | IncomingMobilitiesV1Api  |
 | Incoming Mobilities CNR V1 | IncomingMobilityCnrApi  |
+| Incoming Mobility ToRs V1 | IncomingMobilityToRsV1Api  |
 | Incoming Mobilities ToR CNR V1 | IncomingMobilityToRCnrApi  |
 
 The contract interfaces contain Javadoc comments that are relevant to read before using them.

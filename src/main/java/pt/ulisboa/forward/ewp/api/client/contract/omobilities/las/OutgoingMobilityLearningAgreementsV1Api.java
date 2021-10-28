@@ -11,7 +11,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
-import pt.ulisboa.forward.ewp.api.client.dto.omobilities.OutgoingMobilitiesApiSpecificationResponseDTO;
+import pt.ulisboa.forward.ewp.api.client.dto.omobilities.las.OutgoingMobilityLearningAgreementsApiSpecificationResponseDTO;
 
 /**
  * Contract interface for the Outgoing Mobility Learning Agreements V1 Forward EWP API.
@@ -27,7 +27,7 @@ public interface OutgoingMobilityLearningAgreementsV1Api extends BaseApi {
    * in any given request for a specific HEI ID.
    */
   @RequestLine("GET /api/forward/ewp/omobilities/las/v1/specification?hei_id={hei_id}")
-  ResponseWithDataDto<OutgoingMobilitiesApiSpecificationResponseDTO> getApiSpecification(
+  ResponseWithDataDto<OutgoingMobilityLearningAgreementsApiSpecificationResponseDTO> getApiSpecification(
       @Param("hei_id") String heiId);
 
   /**
