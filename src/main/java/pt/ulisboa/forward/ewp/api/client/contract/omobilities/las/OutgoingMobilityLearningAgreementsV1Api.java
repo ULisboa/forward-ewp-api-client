@@ -114,7 +114,7 @@ public interface OutgoingMobilityLearningAgreementsV1Api extends BaseApi {
    *                   See <a href="https://github.com/erasmus-without-paper/ewp-specs-api-omobility-las/blob/stable-v1/endpoints/update-request.xsd">Specification</a>
    */
   @RequestLine("POST /api/forward/ewp/omobilities/las/v1/update")
-  @Headers("Content-Type: application/x-www-form-urlencoded")
+  @Headers("Content-Type: application/xml")
   ResponseWithDataDto<OmobilityLasUpdateResponseV1> updateOutgoingMobilityLearningAgreement(
       OmobilityLasUpdateRequestV1 updateData);
 }

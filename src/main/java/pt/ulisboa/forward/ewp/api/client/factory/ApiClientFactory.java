@@ -7,6 +7,9 @@ import feign.Logger.Level;
 import feign.Target;
 import feign.Target.HardCodedTarget;
 import feign.form.FormEncoder;
+import feign.jaxb.JAXBContextFactory;
+import feign.jaxb.JAXBContextFactory.Builder;
+import feign.jaxb.JAXBEncoder;
 import feign.slf4j.Slf4jLogger;
 import javax.net.ssl.HttpsURLConnection;
 import pt.ulisboa.forward.ewp.api.client.config.ClientConfiguration;
@@ -38,7 +41,7 @@ public class ApiClientFactory {
 
   public static <T extends BaseApi> T createClient(Client httpClient, Target<T> target) {
     return Feign.builder()
-        .encoder(new FormEncoder())
+        .encoder(new FormEncoder(getJAXBEncoder()))
         .decoder(new EwpJaxbDecoder())
         .requestInterceptor(new JwtRequestInterceptor())
         .client(httpClient)
@@ -46,6 +49,11 @@ public class ApiClientFactory {
         .logger(new Slf4jLogger())
         .logLevel(Level.BASIC)
         .target(target);
+  }
+
+  private static JAXBEncoder getJAXBEncoder() {
+    JAXBContextFactory jaxbContextFactory = new Builder().build();
+    return new JAXBEncoder(jaxbContextFactory);
   }
 
   private static ClientConfiguration getConfiguration() {
