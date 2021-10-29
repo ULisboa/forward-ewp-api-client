@@ -13,6 +13,8 @@ import pt.ulisboa.forward.ewp.api.client.dto.imobilities.tors.IncomingMobilityTo
 
 /**
  * Contract interface for the Outgoing Mobility ToRs V1 Forward EWP API.
+ *
+ * @see <a href="https://github.com/erasmus-without-paper/ewp-specs-api-imobility-tors/tree/stable-v1">Specification</a>
  */
 public interface IncomingMobilityToRsV1Api extends BaseApi {
 
@@ -39,6 +41,29 @@ public interface IncomingMobilityToRsV1Api extends BaseApi {
     return getApiSpecification(heiId).getDataObject().getMaxOmobilityIds();
   }
 
+
+  /**
+   * This API allows the sending institution to access a list of all mobility IDs for which the
+   * receiving institution has already attached corresponding Transcripts of Records, and which the
+   * caller can read (via the findByReceivingHeiIdAndOutgoingMobilityIds API).
+   *
+   * @param receivingHeiId [REQUIRED] An identifier of the institution which is the receiving
+   *                       partner of the mobilities, and the issuer of the returned Transcripts of
+   *                       Records.
+   *                       <p>
+   *                       By default, all transcripts the requester has access to (regardless of
+   *                       their sending partner) are returned. This includes transcripts issued for
+   *                       very old mobilities.
+   * @param sendingHeiIds  A list of institution identifiers. If given, then the results returned
+   *                       contain only such transcripts which were issued for those mobilities
+   *                       whose sending institution matches at least one of the given sendingHeiIds
+   *                       identifiers.
+   * @param modifiedSince  If given, it MAY be used by the receiving HEI to filter the returned
+   *                       transcripts of records to the ones which have been either created or
+   *                       modified after the given point in time.
+   * @return See <a href="https://github.com/erasmus-without-paper/ewp-specs-api-imobility-tors/blob/stable-v1/endpoints/index-response.xsd">Response
+   * specification</a>
+   */
   @RequestLine("POST /api/forward/ewp/imobilities/tors/v1/index")
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseWithDataDto<ImobilityTorsIndexResponseV1> findOutgoingMobilityIdsWithTranscriptOfRecord(
@@ -47,7 +72,21 @@ public interface IncomingMobilityToRsV1Api extends BaseApi {
       @Param("modified_since") ZonedDateTime modifiedSince);
 
   /**
-   * @requires outgoingMobilityIds.size() <= getMaxOmobilityIdsPerRequest(heiId)
+   * This API allows the client (usually the sending HEI) to retrieve Transcripts of Records for
+   * specific Incoming Mobilities from the receiving HEI.
+   *
+   * @param receivingHeiId      [REQUIRED] SCHAC ID of the institution which is (or was) the
+   *                            receiving partner of all the mobilities provided in
+   *                            outgoingMobilityIds parameter list.
+   * @param outgoingMobilityIds [REQUIRED] A list of Outgoing Mobility identifiers (max
+   *                            getMaxOmobilityIdsPerRequest(receivingHeiId) items) - IDs of
+   *                            Outgoing Mobility objects for which the client wants to retrieve
+   *                            corresponding Transcripts of Records. The HEI referenced in the
+   *                            receivingHeiId parameter must be the receiving partner of all these
+   *                            mobilities (unmatched mobilities will be ignored).
+   * @return See <a href="https://github.com/erasmus-without-paper/ewp-specs-api-imobility-tors/blob/stable-v1/endpoints/get-response.xsd">Response
+   * specification</a>
+   * @requires outgoingMobilityIds.size() <= getMaxOmobilityIdsPerRequest(receivingHeiId)
    */
   @RequestLine("POST /api/forward/ewp/imobilities/tors/v1/get")
   @Headers("Content-Type: application/x-www-form-urlencoded")
