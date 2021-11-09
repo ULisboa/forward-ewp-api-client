@@ -17,12 +17,14 @@ public interface InterInstitutionalAgreementCnrApi extends BaseApi {
    * Send a change notification to the partnerHeiId. The notification may or may not succeed due to
    * miscellaneous reasons.
    *
-   * @param notifierHeiId Identifier of the HEI which has recently updated their copy of the IIA on
-   *                      their servers, and is now sending the notification about this event.
-   * @param partnerHeiId  Identifier of the HEI which is the target of the current change
-   *                      notification.
-   * @param iiaId         Identifier of the IIA which has recently been changed (created, updated or
-   *                      deleted) on the notifier-HEI's servers.
+   * @param notifierHeiId   Identifier of the HEI which has recently updated their copy of the IIA
+   *                        on their servers, and is now sending the notification about this event.
+   * @param notifierOunitId Identifier of the organizational unit that is the owner of the provided
+   *                        iiaId, if applicable.
+   * @param partnerHeiId    Identifier of the HEI which is the target of the current change
+   *                        notification.
+   * @param iiaId           Identifier of the IIA which has recently been changed (created, updated
+   *                        or deleted) on the notifier-HEI's servers.
    * @return A response indicating that the change notification is scheduled to be sent by the EWP
    * Node.
    */
@@ -30,6 +32,7 @@ public interface InterInstitutionalAgreementCnrApi extends BaseApi {
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseDto sendChangeNotification(
       @Param("notifier_hei_id") String notifierHeiId,
+      @Param("notifier_ounit_id") String notifierOunitId,
       @Param("partner_hei_id") String partnerHeiId,
       @Param("iia_id") String iiaId);
 

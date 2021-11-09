@@ -20,6 +20,8 @@ public interface OutgoingMobilityCnrApi extends BaseApi {
    *
    * @param sendingHeiId        Identifier of the sending HEI - the master of the Outgoing Mobility
    *                            objects which just have been changed.
+   * @param sendingOunitId      Identifier of the organizational unit that is the owner of the
+   *                            provided outgoingMobilityIds, if applicable.
    * @param receivingHeiId      Identifier of the receiving HEI - the target of the current change
    *                            notification.
    * @param outgoingMobilityIds A list of identifiers of Outgoing Mobility objects . These are the
@@ -32,6 +34,7 @@ public interface OutgoingMobilityCnrApi extends BaseApi {
   @Headers("Content-Type: application/x-www-form-urlencoded")
   ResponseDto sendChangeNotification(
       @Param("sending_hei_id") String sendingHeiId,
+      @Param("sending_ounit_id") String sendingOunitId,
       @Param("receiving_hei_id") String receivingHeiId,
       @Param("omobility_id") List<String> outgoingMobilityIds);
 
