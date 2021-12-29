@@ -1,7 +1,7 @@
 package pt.ulisboa.forward.ewp.api.client.contract.iias;
 
-import eu.erasmuswithoutpaper.api.iias.v4.endpoints.IiasGetResponseV4;
-import eu.erasmuswithoutpaper.api.iias.v4.endpoints.IiasIndexResponseV4;
+import eu.erasmuswithoutpaper.api.iias.v6.endpoints.IiasGetResponseV6;
+import eu.erasmuswithoutpaper.api.iias.v6.endpoints.IiasIndexResponseV6;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
@@ -12,7 +12,7 @@ import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.dto.iias.InterInstitutionalAgreementsApiSpecificationResponseDTO;
 
 /**
- * Contract interface for the InterInstitutional Agreements V4 Forward EWP API.
+ * Contract interface for the InterInstitutional Agreements V6 Forward EWP API.
  *
  * @see <a href="https://github.com/erasmus-without-paper/ewp-specs-api-iias/tree/stable-v6">Specification</a>
  */
@@ -72,7 +72,7 @@ public interface InterInstitutionalAgreementsV6Api extends BaseApi {
    */
   @RequestLine("POST /api/forward/ewp/iias/v6/index")
   @Headers("Content-Type: application/x-www-form-urlencoded")
-  ResponseWithDataDto<IiasIndexResponseV4> findAllByHeiId(
+  ResponseWithDataDto<IiasIndexResponseV6> findAllByHeiId(
       @Param("hei_id") String heiId,
       @Param("partner_hei_id") String partnerHeiId,
       @Param("receiving_academic_year_id") List<String> receivingAcademicYearIds,
@@ -97,7 +97,7 @@ public interface InterInstitutionalAgreementsV6Api extends BaseApi {
    */
   @RequestLine("POST /api/forward/ewp/iias/v6/get")
   @Headers("Content-Type: application/x-www-form-urlencoded")
-  ResponseWithDataDto<IiasGetResponseV4> findByHeiIdAndIiaIds(
+  ResponseWithDataDto<IiasGetResponseV6> findByHeiIdAndIiaIds(
       @Param("hei_id") String heiId,
       @Param("iia_id") List<String> iiaIds,
       @Param("send_pdf") Boolean sendPdf);
@@ -121,7 +121,7 @@ public interface InterInstitutionalAgreementsV6Api extends BaseApi {
    */
   @RequestLine("POST /api/forward/ewp/iias/v6/get")
   @Headers("Content-Type: application/x-www-form-urlencoded")
-  ResponseWithDataDto<IiasGetResponseV4> findByHeiIdAndIiaCodes(
+  ResponseWithDataDto<IiasGetResponseV6> findByHeiIdAndIiaCodes(
       @Param("hei_id") String heiId,
       @Param("iia_code") List<String> iiaCodes,
       @Param("send_pdf") Boolean sendPdf);
