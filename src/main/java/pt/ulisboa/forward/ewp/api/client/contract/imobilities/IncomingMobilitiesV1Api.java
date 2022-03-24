@@ -24,7 +24,7 @@ public interface IncomingMobilitiesV1Api extends BaseApi {
    * @return A response whose data contains the maximum number of Incoming Mobilities IDs and codes
    * accepted in any given request for a specific HEI ID.
    */
-  @RequestLine("GET /api/forward/ewp/imobilities/v3/specification?hei_id={hei_id}")
+  @RequestLine("GET /api/forward/ewp/imobilities/v1/specification?hei_id={hei_id}")
   ResponseWithDataDto<IncomingMobilitiesApiSpecificationResponseDTO> getApiSpecification(
       @Param("hei_id") String heiId);
 
