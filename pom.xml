@@ -181,6 +181,60 @@
         <artifactId>maven-failsafe-plugin</artifactId>
         <version>2.22.2</version>
       </plugin>
+
+      <plugin>
+        <groupId>se.bjurr.gitchangelog</groupId>
+        <artifactId>git-changelog-maven-plugin</artifactId>
+        <version>1.95.2</version>
+        <executions>
+          <execution>
+            <id>GenerateGitChangelog</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>git-changelog</goal>
+            </goals>
+            <configuration>
+              <templateContent>
+# Changelog
+
+{{#tags}}
+{{#ifReleaseTag .}}
+## [{{name}}](https://github.com/{{ownerName}}/{{repoName}}/tree/{{name}}) ({{tagDate .}})
+
+{{#ifContainsType commits type='feat'}}
+### Features
+{{#commits}}
+{{#ifCommitType . type='feat'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hashFull}}))
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+{{#ifContainsType commits type='improvement'}}
+### Improvements
+{{#commits}}
+{{#ifCommitType . type='improvement'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hashFull}}))
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+{{#ifContainsType commits type='fix'}}
+### Bug Fixes
+{{#commits}}
+{{#ifCommitType . type='fix'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hashFull}}))
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+{{/ifReleaseTag}}
+{{/tags}}
+              </templateContent>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
 
     <pluginManagement>
