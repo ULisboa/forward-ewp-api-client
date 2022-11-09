@@ -32,6 +32,11 @@ public class ApiUtils {
     return getSupportedMajorVersionsByApi("simple-course-replication", heiId);
   }
 
+  public static Collection<Integer> getSupportedMajorVersionsOfFilesApi(
+      String heiId) {
+    return getSupportedMajorVersionsByApi("file", heiId);
+  }
+
   public static Collection<Integer> getSupportedMajorVersionsOfInterInstitutionalAgreementsApi(
       String heiId) {
     return getSupportedMajorVersionsByApi("iias", heiId);

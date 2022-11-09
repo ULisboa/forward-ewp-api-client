@@ -152,27 +152,28 @@ All the contract interfaces are located on package pt.ulisboa.forward.ewp.api.cl
 
 Currently, the supported Forward EWP APIs and corresponding contract interfaces are as follows:
 
-| Name of the API  | Contract interface  |
-|---|---|
-| Authentication  | AuthenticationApi  |
-| Institutions V2  | InstitutionsV2Api  |
-| Organizational Units V2  | OrganizationalUnitsV2Api  |
-| Simple Course Replication V1  | SimpleCourseReplicationV1Api  |
-| Courses V0  | CoursesV0Api  |
-| InterInstitutional Agreements V3  | InterInstitutionalAgreementsV3Api  |
-| InterInstitutional Agreements V4 | InterInstitutionalAgreementsV4Api  |
-| InterInstitutional Agreements V6 | InterInstitutionalAgreementsV6Api  |
-| InterInstitutional Agreement CNR V2 | InterInstitutionalAgreementCnrApi  |
-| InterInstitutional Agreement Approvals V1  | InterInstitutionalAgreementApprovalsV1Api  |
-| Fact Sheets V1  | FactsheetsV1Api  |
-| Outgoing Mobilities V1 | OutgoingMobilitiesV1Api  |
-| Outgoing Mobility CNR V1 | OutgoingMobilityCnrApi  |
-| Outgoing Mobility Learning Agreements V1 | OutgoingMobilityLearningAgreementsV1Api  |
+| Name of the API                             | Contract interface  |
+|---------------------------------------------|---|
+| Authentication                              | AuthenticationApi  |
+| Institutions V2                             | InstitutionsV2Api  |
+| Organizational Units V2                     | OrganizationalUnitsV2Api  |
+| Simple Course Replication V1                | SimpleCourseReplicationV1Api  |
+| Files V1                                    | FilesV1Api  |
+| Courses V0                                  | CoursesV0Api  |
+| InterInstitutional Agreements V3            | InterInstitutionalAgreementsV3Api  |
+| InterInstitutional Agreements V4            | InterInstitutionalAgreementsV4Api  |
+| InterInstitutional Agreements V6            | InterInstitutionalAgreementsV6Api  |
+| InterInstitutional Agreement CNR V2         | InterInstitutionalAgreementCnrApi  |
+| InterInstitutional Agreement Approvals V1   | InterInstitutionalAgreementApprovalsV1Api  |
+| Fact Sheets V1                              | FactsheetsV1Api  |
+| Outgoing Mobilities V1                      | OutgoingMobilitiesV1Api  |
+| Outgoing Mobility CNR V1                    | OutgoingMobilityCnrApi  |
+| Outgoing Mobility Learning Agreements V1    | OutgoingMobilityLearningAgreementsV1Api  |
 | Outgoing Mobility Learning Agreement CNR V1 | OutgoingMobilityLearningAgreementCnrApi  |
-| Incoming Mobilities V1 | IncomingMobilitiesV1Api  |
-| Incoming Mobilities CNR V1 | IncomingMobilityCnrApi  |
-| Incoming Mobility ToRs V1 | IncomingMobilityToRsV1Api  |
-| Incoming Mobilities ToR CNR V1 | IncomingMobilityToRCnrApi  |
+| Incoming Mobilities V1                      | IncomingMobilitiesV1Api  |
+| Incoming Mobilities CNR V1                  | IncomingMobilityCnrApi  |
+| Incoming Mobility ToRs V1                   | IncomingMobilityToRsV1Api  |
+| Incoming Mobilities ToR CNR V1              | IncomingMobilityToRCnrApi  |
 
 The contract interfaces contain Javadoc comments that are relevant to read before using them.
 
