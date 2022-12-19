@@ -40,7 +40,7 @@ class JwtRequestInterceptorTest {
             JwtRequestInterceptor.HEADER_AUTHORIZATION_BEARER_PREFIX.length());
     assertThat(jwtToken).isNotEmpty();
     JWT.require(Algorithm.HMAC256(configuration.getSecret()))
-        .withIssuer(configuration.getHostCode())
+        .withIssuer(configuration.getClientId())
         .build()
         .verify(jwtToken);
   }

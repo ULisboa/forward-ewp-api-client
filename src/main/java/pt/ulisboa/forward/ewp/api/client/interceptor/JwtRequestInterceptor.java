@@ -16,7 +16,7 @@ public class JwtRequestInterceptor implements RequestInterceptor {
     ClientConfiguration configuration = ClientConfiguration.getInstance();
     String jwtToken =
         JWT.create()
-            .withIssuer(configuration.getHostCode())
+            .withIssuer(configuration.getClientId())
             .sign(Algorithm.HMAC256(configuration.getSecret()));
     requestTemplate.header(HEADER_AUTHORIZATION, HEADER_AUTHORIZATION_BEARER_PREFIX + jwtToken);
   }

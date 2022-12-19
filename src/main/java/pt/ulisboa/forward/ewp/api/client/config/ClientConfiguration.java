@@ -10,16 +10,16 @@ public class ClientConfiguration {
   private static ClientConfiguration instance;
 
   private final String apiBaseUrl;
-  private final String hostCode;
+  private final String clientId;
   private final String secret;
 
-  private ClientConfiguration(String apiBaseUrl, String hostCode, String secret) {
+  private ClientConfiguration(String apiBaseUrl, String clientId, String secret) {
     Objects.requireNonNull(apiBaseUrl, "API Base URL must not be null");
-    Objects.requireNonNull(hostCode, "Host code must not be null");
+    Objects.requireNonNull(clientId, "Client ID must not be null");
     Preconditions.checkArgument(!Strings.isNullOrEmpty(secret), "Secret must not be empty");
 
     this.apiBaseUrl = apiBaseUrl;
-    this.hostCode = hostCode;
+    this.clientId = clientId;
     this.secret = secret;
   }
 
@@ -27,8 +27,8 @@ public class ClientConfiguration {
     return apiBaseUrl;
   }
 
-  public String getHostCode() {
-    return hostCode;
+  public String getClientId() {
+    return clientId;
   }
 
   public String getSecret() {
@@ -37,16 +37,17 @@ public class ClientConfiguration {
 
   /**
    * Configures globally the client.
+   * The clientId and secret pair must be configured on the EWP Node.
    *
    * @param apiBaseUrl Base API URL for the Forward Ewp APIs. For example, if the Forward
    *     Institutions EWP API is available at https://www.example.com/api/forward/ewp/institutions,
    *     then the base API URL is https://www.example.com/.
-   * @param hostCode Unique identifier of the host.
+   * @param clientId Unique identifier of the client.
    * @param secret Secret associated with the host, used for encoding during the authentication
    *     phase.
    */
-  public static void configure(String apiBaseUrl, String hostCode, String secret) {
-    instance = new ClientConfiguration(apiBaseUrl, hostCode, secret);
+  public static void configure(String apiBaseUrl, String clientId, String secret) {
+    instance = new ClientConfiguration(apiBaseUrl, clientId, secret);
   }
 
   /** Resets the client configuration, cleaning it. */
