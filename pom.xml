@@ -228,6 +228,15 @@
 {{/commits}}
 {{/ifContainsType}}
 
+{{#ifContainsType commits type='refactor'}}
+### Refactor
+{{#commits}}
+{{#ifCommitType . type='refactor'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hashFull}}))
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
 {{/ifReleaseTag}}
 {{/tags}}
               </templateContent>
