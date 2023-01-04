@@ -38,16 +38,16 @@ public class ApiErrorDecoder implements ErrorDecoder {
   private Exception decodeResponseByStatusCode(String methodKey, Response response, int statusCode)
       throws IOException {
     if (400 <= statusCode && statusCode < 500) {
-      return resolveClientErrorToException(response);
+      return resolveErrorToException(response);
     } else if (500 <= statusCode && statusCode < 600) {
-      return resolveServerErrorToException(response);
+      return resolveErrorToException(response);
     } else {
       return new ErrorDecoderException(
           statusCode, response.toString(), FeignException.errorStatus(methodKey, response));
     }
   }
 
-  Exception resolveClientErrorToException(Response response) throws IOException {
+  Exception resolveErrorToException(Response response) throws IOException {
     boolean hasDataObject =
         response.headers().getOrDefault(HttpConstants.HEADER_X_HAS_DATA_OBJECT, new ArrayList<>())
             .stream()
@@ -68,13 +68,5 @@ public class ApiErrorDecoder implements ErrorDecoder {
           responseDto != null ? responseDto.getMessages() : Collections.emptyList();
       return new RequestException(response.status(), communicationId, messages);
     }
-  }
-
-  Exception resolveServerErrorToException(Response response) throws IOException {
-    ResponseDto responseDto = (ResponseDto) decoder.decode(response, ResponseDto.class);
-    Long communicationId = responseDto != null ? responseDto.getCommunicationId() : null;
-    List<Message> messages =
-        responseDto != null ? responseDto.getMessages() : Collections.emptyList();
-    return new RequestException(response.status(), communicationId, messages);
   }
 }
