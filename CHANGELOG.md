@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.17.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.17.0) (2023-01-04)
+
+### Features
+-  add communication ID to ResponseDto ([5003460e6b443d5](https://github.com/ULisboa/forward-ewp-api-client/commit/5003460e6b443d5b2eb52bff0df99d1aefc97994))
+
+
+
+### Refactor
+-  reuse error response to exception conversion ([5785e939a202165](https://github.com/ULisboa/forward-ewp-api-client/commit/5785e939a202165d5e3169d316d762a5d6ba6109))
+
 ## [0.16.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.16.0) (2022-12-19)
 
 ### Features
