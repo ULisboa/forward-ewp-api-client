@@ -128,10 +128,17 @@ interface.
 
 When a method of the client is called, generally, as long as the request does not fail, an instance
 of ResponseWithDataDto\<T\>, where T may be any EWP data class (except for the Authentication API,
-where it is of a specific EWP Node data class), is returned. That instance will contain a list of
-messages that the EWP Node may have produced
+where it is of a specific EWP Node data class), is returned. That instance will also contain the 
+[communication ID](#communication-id), a list of messages that the EWP Node may have produced
 (that may contain relevant information), and the EWP data object itself, as returned by the target
 EWP server.
+
+## Communication ID
+
+Generally, each communication with the EWP Node has a unique ID.
+
+This ID is useful for troubleshooting the actual communication from the perspective of the EWP Node.
+Therefore, if available, it should be provided to an EWP Node admin when debugging a possible bug.
 
 ## Exception handling
 
@@ -143,7 +150,7 @@ corresponding EWP API or for some other reason), there are two possible runtime 
 
 Thrown for all failed requests.
 
-It contains the status code of the call, the communication ID, a list
+It contains the status code of the call, the [communication ID](#communication-id), a list
   of messages that the EWP Node produced (specially when incorrect values are passed to the Forward
   EWP API) and, possibly (may be undefined), an ErrorResponse instance that contains the original
   error response emitted by the target EWP server;
