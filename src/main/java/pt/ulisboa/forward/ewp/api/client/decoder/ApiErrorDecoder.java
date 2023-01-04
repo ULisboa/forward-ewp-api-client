@@ -60,19 +60,21 @@ public class ApiErrorDecoder implements ErrorDecoder {
           (ResponseWithDataDto<ErrorResponseV1>)
               decoder.decode(response, ResponseWithDataDto.class);
       return new RequestException(
-          response.status(), responseDto.getMessages(), responseDto.getDataObject());
+          response.status(), responseDto.getCommunicationId(), responseDto.getMessages(), responseDto.getDataObject());
     } else {
       ResponseDto responseDto = (ResponseDto) decoder.decode(response, ResponseDto.class);
+      Long communicationId = responseDto != null ? responseDto.getCommunicationId() : null;
       List<Message> messages =
           responseDto != null ? responseDto.getMessages() : Collections.emptyList();
-      return new RequestException(response.status(), messages);
+      return new RequestException(response.status(), communicationId, messages);
     }
   }
 
   Exception resolveServerErrorToException(Response response) throws IOException {
     ResponseDto responseDto = (ResponseDto) decoder.decode(response, ResponseDto.class);
+    Long communicationId = responseDto != null ? responseDto.getCommunicationId() : null;
     List<Message> messages =
         responseDto != null ? responseDto.getMessages() : Collections.emptyList();
-    return new RequestException(response.status(), messages);
+    return new RequestException(response.status(), communicationId, messages);
   }
 }
