@@ -63,24 +63,41 @@ any Java project.
 A typical usage example, for obtaining the information of a given institution by its HEI ID, is as
 follows:
 
-```
-import eu.erasmuswithoutpaper.api.institutions.InstitutionsResponse;
+```java
+import eu.erasmuswithoutpaper.api.architecture.v1.ErrorResponseV1;
+import eu.erasmuswithoutpaper.api.architecture.v1.MultilineStringV1;
+import eu.erasmuswithoutpaper.api.architecture.v1.MultilineStringWithOptionalLangV1;
+import eu.erasmuswithoutpaper.api.institutions.v2.InstitutionsResponseV2;
 import java.util.List;
 import pt.ulisboa.forward.ewp.api.client.config.ClientConfiguration;
-import pt.ulisboa.forward.ewp.api.client.contract.institutions.InstitutionsApi;
+import pt.ulisboa.forward.ewp.api.client.contract.institutions.InstitutionsV2Api;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto.Message;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
+import pt.ulisboa.forward.ewp.api.client.exception.RequestException;
 import pt.ulisboa.forward.ewp.api.client.factory.ApiClientFactory;
 
 public class MyApp {
 
   public static void main(String[] args) {
-    ClientConfiguration.configure("https://example.com", "host-code", "secret");
-    InstitutionsApi client = ApiClientFactory.createClient(InstitutionsApi.class);
-    ResponseWithDataDto<InstitutionsResponse> response = client.findByHeiId("xyz");
-    List<Message> nodeMessages = response.getMessages();
-    InstitutionsResponse institutionsResponse = response.getDataObject();
-    // Handle the response obtained...
+    ClientConfiguration.configure("https://example.com", "client-id", "secret");
+    InstitutionsV2Api client = ApiClientFactory.createClient(InstitutionsV2Api.class);
+    try {
+      ResponseWithDataDto<InstitutionsResponseV2> response = client.findByHeiId("xyz");
+      List<Message> nodeMessages = response.getMessages();
+      Long communicationId = response.getCommunicationId();
+      InstitutionsResponseV2 institutionsResponse = response.getDataObject();
+      // Handle the response obtained...
+      
+    } catch (RequestException e) {
+      // Log the ID of the failed communication using e.getCommunicationId()
+      // Handle the exception...
+      if (e.hasTargetErrorResponse()) {
+        ErrorResponseV1 errorResponse = e.getTargetErrorResponse();
+        List<MultilineStringWithOptionalLangV1> userMessages = errorResponse.getUserMessage();
+        MultilineStringV1 developerMessage = errorResponse.getDeveloperMessage();
+        // Handle the error response obtained...
+      }
+    }
   }
 }
 ```
@@ -94,7 +111,7 @@ The library must be configured before being able to use it. For that, it is nece
 following fragment:
 
 ```
-ClientConfiguration.configure("https://example.com", "host-code", "secret");
+ClientConfiguration.configure("https://example.com", "client-id", "secret");
 ```
 
 Once this fragment is ran, every client created will use it as reference. Therefore, as long as the
@@ -102,8 +119,8 @@ configuration parameters do not change, it is only necessary to run this fragmen
 configuration expects three parameters, by order:
 
 1. The EWP Node base URL;
-2. The host code registered on the EWP Node;
-3. The secret associated with the host (identified by the host code) registered on the EWP Node.
+2. The client ID registered on the EWP Node;
+3. The secret associated with the client (identified by the client ID) registered on the EWP Node.
 
 ## Client Creation
 
