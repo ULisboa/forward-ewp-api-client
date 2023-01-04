@@ -139,12 +139,23 @@ When a client request fails (for example, when running, in the usage example,
 ```client.findByHeiId("xyz")```, it fails because the given HEI ID does not implement the
 corresponding EWP API or for some other reason), there are two possible runtime exceptions thrown:
 
-- RequestException: Thrown for all failed requests. It contains the status code of the call, a list
+### RequestException
+
+Thrown for all failed requests.
+
+It contains the status code of the call, the communication ID, a list
   of messages that the EWP Node produced (specially when incorrect values are passed to the Forward
   EWP API) and, possibly (may be undefined), an ErrorResponse instance that contains the original
   error response emitted by the target EWP server;
-- ErrorDecoderException: Thrown if error decoder fails to throw a RequestException. If this is
-  thrown it may indicate some problem with the EWP Node or the client itself.
+
+See class definition [here](src/main/java/pt/ulisboa/forward/ewp/api/client/exception/RequestException.java).
+
+### ErrorDecoderException
+Thrown if error decoder fails to throw a RequestException. 
+
+If this is thrown it may indicate some problem with the EWP Node or the client itself.
+
+See class definition [here](src/main/java/pt/ulisboa/forward/ewp/api/client/exception/ErrorDecoderException.java).
 
 ## APIs supported
 
