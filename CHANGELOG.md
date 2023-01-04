@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.17.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.17.1) (2023-01-04)
+
+
+
+
+
 ## [0.17.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.17.0) (2023-01-04)
 
 ### Features
