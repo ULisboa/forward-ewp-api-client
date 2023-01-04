@@ -23,14 +23,28 @@ public class RequestException extends RuntimeException {
     this.targetErrorResponse = targetErrorResponse;
   }
 
+  /**
+   * Returns the HTTP status code.
+   * @return HTTP status code
+   */
   public int getStatusCode() {
     return statusCode;
   }
 
+  /**
+   * Returns the ID of the communication that originated the current exception.
+   * It should be provided to an EWP Node admin for easier troubleshooting
+   * (allowing the identification of the exact request) on the EWP Node.
+   * @return ID of the communication
+   */
   public Long getCommunicationId() {
     return communicationId;
   }
 
+  /**
+   * Returns messages that the EWP Node produced itself.
+   * For instance, it may include invalid input.
+   */
   public List<Message> getNodeMessages() {
     return nodeMessages;
   }
@@ -39,6 +53,11 @@ public class RequestException extends RuntimeException {
     return targetErrorResponse != null;
   }
 
+  /**
+   * Returns an EWP ErrorResponseV1 instance, if available.
+   * This is the same instance that a remote EWP node has originally.
+   * @return The original error response instance returned by a remote EWP node.
+   */
   public ErrorResponseV1 getTargetErrorResponse() {
     return targetErrorResponse;
   }
