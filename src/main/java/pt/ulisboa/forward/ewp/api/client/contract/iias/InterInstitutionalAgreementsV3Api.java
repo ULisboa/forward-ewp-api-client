@@ -10,6 +10,8 @@ import java.util.List;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.dto.iias.InterInstitutionalAgreementsApiSpecificationResponseDTO;
+import pt.ulisboa.forward.ewp.api.client.dto.iias.hash.request.IiaHashesCalculationV3RequestDTO;
+import pt.ulisboa.forward.ewp.api.client.dto.iias.hash.response.IiaHashesCalculationResponseDTO;
 
 /** Contract interface for the InterInstitutional Agreements V3 Forward EWP API. */
 public interface InterInstitutionalAgreementsV3Api extends BaseApi {
@@ -71,4 +73,9 @@ public interface InterInstitutionalAgreementsV3Api extends BaseApi {
       @Param("hei_id") String heiId,
       @Param("iia_code") List<String> iiaCodes,
       @Param("send_pdf") Boolean sendPdf);
+
+  @RequestLine("POST /api/forward/ewp/iias/v3/hashes/calculate")
+  @Headers("Content-Type: application/xml")
+  ResponseWithDataDto<IiaHashesCalculationResponseDTO> calculateCooperationConditionsHashes(
+      IiaHashesCalculationV3RequestDTO requestDTO);
 }
