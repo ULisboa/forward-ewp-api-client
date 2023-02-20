@@ -1,4 +1,4 @@
-package pt.ulisboa.forward.ewp.api.client.dto.iias.hash.response;
+package pt.ulisboa.forward.ewp.api.client.dto.iias.hash;
 
 import java.util.Collection;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -12,15 +12,15 @@ import javax.xml.bind.annotation.XmlType;
     name = "",
     propOrder = {"hashes"})
 @XmlRootElement(name = "hashes")
-public class IiaHashesCalculationResponseDTO {
+public class InterInstitutionalAgreementHashesCalculationResultDTO {
 
   @XmlElement(name = "hashes", required = true)
   private Collection<String> hashes;
 
-  public IiaHashesCalculationResponseDTO() {
+  public InterInstitutionalAgreementHashesCalculationResultDTO() {
   }
 
-  public IiaHashesCalculationResponseDTO(Collection<String> hashes) {
+  public InterInstitutionalAgreementHashesCalculationResultDTO(Collection<String> hashes) {
     this.hashes = hashes;
   }
 

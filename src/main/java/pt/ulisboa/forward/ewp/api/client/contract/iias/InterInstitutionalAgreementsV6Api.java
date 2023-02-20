@@ -1,6 +1,5 @@
 package pt.ulisboa.forward.ewp.api.client.contract.iias;
 
-import eu.erasmuswithoutpaper.api.iias.v6.endpoints.IiasGetResponseV6;
 import eu.erasmuswithoutpaper.api.iias.v6.endpoints.IiasIndexResponseV6;
 import feign.Headers;
 import feign.Param;
@@ -10,8 +9,9 @@ import java.util.List;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.dto.iias.InterInstitutionalAgreementsApiSpecificationResponseDTO;
-import pt.ulisboa.forward.ewp.api.client.dto.iias.hash.request.IiaHashesCalculationV6RequestDTO;
-import pt.ulisboa.forward.ewp.api.client.dto.iias.hash.response.IiaHashesCalculationResponseDTO;
+import pt.ulisboa.forward.ewp.api.client.dto.iias.InterInstitutionalAgreementsV6GetResponseDto;
+import pt.ulisboa.forward.ewp.api.client.dto.iias.hash.InterInstitutionalAgreementHashesCalculationResultDTO;
+import pt.ulisboa.forward.ewp.api.client.dto.iias.hash.request.InterInstitutionalAgreementHashesCalculationV6RequestDTO;
 
 /**
  * Contract interface for the InterInstitutional Agreements V6 Forward EWP API.
@@ -99,7 +99,7 @@ public interface InterInstitutionalAgreementsV6Api extends BaseApi {
    */
   @RequestLine("POST /api/forward/ewp/iias/v6/get")
   @Headers("Content-Type: application/x-www-form-urlencoded")
-  ResponseWithDataDto<IiasGetResponseV6> findByHeiIdAndIiaIds(
+  ResponseWithDataDto<InterInstitutionalAgreementsV6GetResponseDto> findByHeiIdAndIiaIds(
       @Param("hei_id") String heiId,
       @Param("iia_id") List<String> iiaIds,
       @Param("send_pdf") Boolean sendPdf);
@@ -123,13 +123,13 @@ public interface InterInstitutionalAgreementsV6Api extends BaseApi {
    */
   @RequestLine("POST /api/forward/ewp/iias/v6/get")
   @Headers("Content-Type: application/x-www-form-urlencoded")
-  ResponseWithDataDto<IiasGetResponseV6> findByHeiIdAndIiaCodes(
+  ResponseWithDataDto<InterInstitutionalAgreementsV6GetResponseDto> findByHeiIdAndIiaCodes(
       @Param("hei_id") String heiId,
       @Param("iia_code") List<String> iiaCodes,
       @Param("send_pdf") Boolean sendPdf);
 
   @RequestLine("POST /api/forward/ewp/iias/v6/hashes/calculate")
   @Headers("Content-Type: application/xml")
-  ResponseWithDataDto<IiaHashesCalculationResponseDTO> calculateCooperationConditionsHashes(
-      IiaHashesCalculationV6RequestDTO requestDTO);
+  ResponseWithDataDto<InterInstitutionalAgreementHashesCalculationResultDTO> calculateCooperationConditionsHashes(
+      InterInstitutionalAgreementHashesCalculationV6RequestDTO requestDTO);
 }

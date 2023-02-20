@@ -14,16 +14,16 @@ import javax.xml.bind.annotation.XmlType;
     name = "",
     propOrder = {"iias"})
 @XmlRootElement(name = "iia-hashes-calculation-request")
-public class IiaHashesCalculationV6RequestDTO {
+public class InterInstitutionalAgreementHashesCalculationV6RequestDTO {
 
   @XmlElementWrapper(name = "iias")
   @XmlElement(name = "iia", required = true)
   private List<Iia> iias;
 
-  public IiaHashesCalculationV6RequestDTO() {
+  public InterInstitutionalAgreementHashesCalculationV6RequestDTO() {
   }
 
-  public IiaHashesCalculationV6RequestDTO(List<Iia> iias) {
+  public InterInstitutionalAgreementHashesCalculationV6RequestDTO(List<Iia> iias) {
     this.iias = iias;
   }
 
