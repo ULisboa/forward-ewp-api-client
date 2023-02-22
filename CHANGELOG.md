@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.19.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.19.0) (2023-02-20)
+
+### Features
+-  IIAs V6 Forward EWP API get responses now include the obtained IIAs instance as well hash validation information ([fe0fb48c8ca7af5](https://github.com/ULisboa/forward-ewp-api-client/commit/fe0fb48c8ca7af5dbf8506c55b7177adaef82c6f))
+
+
+
+### Refactor
+-  remove V3/V4 of IIAs Forward EWP APIs ([54bab1e0ace5eef](https://github.com/ULisboa/forward-ewp-api-client/commit/54bab1e0ace5eef9bb563f0a95d2f37c4bd7a059))
+
+## [0.18.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.18.0) (2023-02-16)
+
+### Features
+-  add calculateCooperationConditionsHashes methods to IIAs APIs ([507c2461eb47899](https://github.com/ULisboa/forward-ewp-api-client/commit/507c2461eb47899f20b8d6fb1b4d985e34375767))
+
+
+
+
 ## [0.17.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.17.1) (2023-01-04)
 
 
