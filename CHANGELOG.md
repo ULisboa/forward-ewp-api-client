@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.19.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.19.1) (2023-07-07)
+
+### Features
+-  implement default getMessage() to RequestException ([8604cc15fe3a1c9](https://github.com/ULisboa/forward-ewp-api-client/commit/8604cc15fe3a1c9d776a559b4de5c39ae97be319))
+
+
+
+
 ## [0.19.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.19.0) (2023-02-20)
 
 ### Features
