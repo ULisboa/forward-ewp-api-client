@@ -2,6 +2,8 @@ package pt.ulisboa.forward.ewp.api.client.exception;
 
 import eu.erasmuswithoutpaper.api.architecture.v1.ErrorResponseV1;
 import java.util.List;
+
+import eu.erasmuswithoutpaper.api.architecture.v1.MultilineStringWithOptionalLangV1;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto.Message;
 
 public class RequestException extends RuntimeException {
@@ -60,5 +62,29 @@ public class RequestException extends RuntimeException {
    */
   public ErrorResponseV1 getTargetErrorResponse() {
     return targetErrorResponse;
+  }
+
+  @Override
+  public String getMessage() {
+    StringBuilder result = new StringBuilder();
+
+    result.append("Communication ID: ").append(this.communicationId).append(System.lineSeparator());
+
+    if (!this.nodeMessages.isEmpty()) {
+      result.append("Node Messages: ").append(System.lineSeparator());
+      for (Message nodeMessage : this.nodeMessages) {
+        result.append("- ").append(nodeMessage.getSeverity()).append(": ").append(nodeMessage.getSummary()).append(System.lineSeparator());
+      }
+    }
+
+    if (this.hasTargetErrorResponse()) {
+      result.append("Target Error Message: ").append(System.lineSeparator());
+      result.append("'-> User Messages: ").append(System.lineSeparator());
+      for (MultilineStringWithOptionalLangV1 userMessage : this.getTargetErrorResponse().getUserMessage()) {
+        result.append("    - ").append(userMessage.getValue()).append(System.lineSeparator());
+      }
+    }
+
+    return result.toString();
   }
 }
