@@ -27,6 +27,7 @@ public class JwtRequestInterceptor implements RequestInterceptor {
     String jwtToken =
         JWT.create()
             .withIssuer(configuration.getClientId())
+            .withIssuedAt(new Date())
             .withExpiresAt(expiresAt)
             .sign(Algorithm.HMAC256(configuration.getSecret()));
     requestTemplate.header(HEADER_AUTHORIZATION, HEADER_AUTHORIZATION_BEARER_PREFIX + jwtToken);
