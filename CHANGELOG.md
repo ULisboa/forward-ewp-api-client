@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.20.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.20.0) (2023-10-03)
+
+
+### Improvements
+-  update ewp-connector-api to v3.11.1 ([40a9705fb7dd286](https://github.com/ULisboa/forward-ewp-api-client/commit/40a9705fb7dd28661cad36b1dd6a19c406939b01))
+-  add client claim to JWT tokens ([072455ae19d286b](https://github.com/ULisboa/forward-ewp-api-client/commit/072455ae19d286bc127c9141e6eb635d36147ec5))
+-  add issued at information to JWT tokens ([28787246b5fee98](https://github.com/ULisboa/forward-ewp-api-client/commit/28787246b5fee98486360bbcb1530a8f371c834e))
+-  add expiration time to JWT tokens (defaults to 30s expiration time in future) ([d0ea53ec8bd99aa](https://github.com/ULisboa/forward-ewp-api-client/commit/d0ea53ec8bd99aa31de0663e9e14fa10e14f2785))
+
+
+
+## [0.19.2](https://github.com/ULisboa/forward-ewp-api-client/tree/0.19.2) (2023-07-07)
+
+
+
+
+
 ## [0.19.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.19.1) (2023-07-07)
 
 ### Features
