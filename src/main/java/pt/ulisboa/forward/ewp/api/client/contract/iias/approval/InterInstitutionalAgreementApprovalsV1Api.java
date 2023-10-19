@@ -11,6 +11,7 @@ import pt.ulisboa.forward.ewp.api.client.dto.iias.approval.InterInstitutionalAgr
 
 /**
  * Contract interface for the InterInstitutional Agreement Approvals V1 Forward EWP API.
+ * This API must be used only for IIAs up to v6.
  *
  * @see <a href="https://github.com/erasmus-without-paper/ewp-specs-api-iias-approval/tree/stable-v1">Specification</a>
  */
