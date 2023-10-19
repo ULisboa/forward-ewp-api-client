@@ -132,4 +132,8 @@ public interface InterInstitutionalAgreementsV6Api extends BaseApi {
   @Headers("Content-Type: application/xml")
   ResponseWithDataDto<InterInstitutionalAgreementHashesCalculationResultDTO> calculateCooperationConditionsHashes(
       InterInstitutionalAgreementHashesCalculationV6RequestDTO requestDTO);
+
+  @RequestLine("POST /api/forward/ewp/iias/v6/hashes/calculate")
+  @Headers("Content-Type: multipart/form-data")
+  ResponseWithDataDto<InterInstitutionalAgreementHashesCalculationResultDTO> calculateCooperationConditionsHashes(@Param("xml") byte[] xml);
 }
