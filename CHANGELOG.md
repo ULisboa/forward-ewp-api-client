@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.21.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.21.0) (2023-10-19)
+
+### Features
+-  add calculateCooperationConditionsHashes(byte[] xml) to InterInstitutionalAgreementsV6Api ([d93f3c69f6138fd](https://github.com/ULisboa/forward-ewp-api-client/commit/d93f3c69f6138fd5e448f0d67739964dd1abf88a))
+-  add raw XML (actual response of the subsequent IIA EWP API that the EWP Node makes) to InterInstitutionalAgreementsV6GetResponseDto ([dc858e104a2d6c4](https://github.com/ULisboa/forward-ewp-api-client/commit/dc858e104a2d6c4794833ca3bbbab3a4dcdaef32))
+
+
+
+
 ## [0.20.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.20.0) (2023-10-03)
 
 

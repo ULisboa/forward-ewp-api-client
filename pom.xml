@@ -166,7 +166,7 @@
 
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
+        <version>3.0.1</version>
         <configuration>
           <releaseProfiles>release</releaseProfiles>
           <tagNameFormat>@{project.version}</tagNameFormat>
@@ -185,7 +185,7 @@
       <plugin>
         <groupId>se.bjurr.gitchangelog</groupId>
         <artifactId>git-changelog-maven-plugin</artifactId>
-        <version>1.95.2</version>
+        <version>1.100.6</version>
         <executions>
           <execution>
             <id>GenerateGitChangelog</id>
@@ -251,7 +251,7 @@
         <plugin>
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
-          <version>3.7.0.1746</version>
+          <version>3.10.0.2594</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -265,7 +265,7 @@
           <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.4</version>
+            <version>0.8.11</version>
             <executions>
               <execution>
                 <id>prepare-agent</id>
@@ -292,7 +292,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>3.2.1</version>
+            <version>3.3.0</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -307,7 +307,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>3.2.0</version>
+            <version>3.6.0</version>
             <executions>
               <execution>
                 <id>attach-javadocs</id>
@@ -321,7 +321,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
+            <version>3.1.0</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
@@ -336,7 +336,7 @@
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.8</version>
+            <version>1.6.13</version>
             <extensions>true</extensions>
             <configuration>
               <serverId>ossrh</serverId>
