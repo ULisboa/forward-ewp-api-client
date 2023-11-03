@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.22.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.22.1) (2023-11-03)
+
+
+### Improvements
+-  update InterInstitutionalAgreementsV7Api to latest specification ([cef3e6041356f53](https://github.com/ULisboa/forward-ewp-api-client/commit/cef3e6041356f539a4ab1e5d178ad8b009b260e4))
+
+
+
+## [0.22.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.22.0) (2023-11-03)
+
+### Features
+-  add support for IIAs Forward EWP API v7 ([5498e02a01dbd28](https://github.com/ULisboa/forward-ewp-api-client/commit/5498e02a01dbd288a34eb1c6d995983ac25ce893))
+
+
+
+
 ## [0.21.2](https://github.com/ULisboa/forward-ewp-api-client/tree/0.21.2) (2023-10-19)
 
 
