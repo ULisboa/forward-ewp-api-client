@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.23.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.23.0) (2023-11-20)
+
+### Features
+-  add InterInstitutionalAgreementApprovalsV2Api ([869d4d2399447df](https://github.com/ULisboa/forward-ewp-api-client/commit/869d4d2399447df86c2856fbce72fb4b8972e45b))
+
+
+
+
 ## [0.22.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.22.1) (2023-11-03)
 
 
