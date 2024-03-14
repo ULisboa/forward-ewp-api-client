@@ -15,7 +15,7 @@ import pt.ulisboa.forward.ewp.api.client.dto.iias.hash.InterInstitutionalAgreeme
 @XmlRootElement(name = "iia-with-hash-validation")
 public class InterInstitutionalAgreementV6WithHashValidationResponseDto {
 
-  @XmlElement(name = "iia", required = true)
+  @XmlElement(name = "iia", required = true, namespace = "https://github.com/erasmus-without-paper/ewp-specs-api-iias/blob/stable-v6/endpoints/get-response.xsd")
   private Iia iia;
 
   @XmlElement(name = "hash-validation", required = true)
