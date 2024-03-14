@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.23.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.23.1) (2024-03-14)
+
+
+
+### Bug Fixes
+-  IIA deserialization on InterInstitutionalAgreementV7WithHashValidationResponseDto and InterInstitutionalAgreementV6WithHashValidationResponseDto could fail due to missing namespace ([d15580de46d9fa3](https://github.com/ULisboa/forward-ewp-api-client/commit/d15580de46d9fa3f1344c815793c9924466f1bcf))
+
+
 ## [0.23.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.23.0) (2023-11-20)
 
 ### Features
