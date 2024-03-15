@@ -12,13 +12,16 @@ import pt.ulisboa.forward.ewp.api.client.dto.iias.hash.InterInstitutionalAgreeme
 @XmlType(
     name = "",
     propOrder = {"iia", "hashValidation"})
-@XmlRootElement(name = "iia-with-hash-validation")
+@XmlRootElement(name = "iia-with-hash-validation",
+    namespace = "https://github.com/ULisboa/ewp-node/tree/master/api/forward/ewp/iias/v7")
 public class InterInstitutionalAgreementV7WithHashValidationResponseDto {
 
   @XmlElement(name = "iia", required = true, namespace = "https://github.com/erasmus-without-paper/ewp-specs-api-iias/blob/stable-v7/endpoints/get-response.xsd")
   private Iia iia;
 
-  @XmlElement(name = "hash-validation", required = true)
+  @XmlElement(name = "hash-validation", required = true,
+      namespace =
+          "https://github.com/ULisboa/ewp-node/tree/master/api/forward/ewp/iias/hash/validation")
   private InterInstitutionalAgreementHashValidationDto hashValidation;
 
   public InterInstitutionalAgreementV7WithHashValidationResponseDto() {
