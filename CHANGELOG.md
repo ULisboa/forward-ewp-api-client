@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.24.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.24.0) (2024-03-15)
+
+### Features
+-  add namespaces to several response DTOs ([fbf4b38731c59a4](https://github.com/ULisboa/forward-ewp-api-client/commit/fbf4b38731c59a4ae72c014943104fa7e7665f40))
+
+
+
+
 ## [0.23.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.23.1) (2024-03-14)
 
 
