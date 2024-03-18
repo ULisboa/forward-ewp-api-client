@@ -4,6 +4,7 @@ import feign.Param;
 import feign.RequestLine;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
+import pt.ulisboa.forward.ewp.api.client.dto.files.FileResponseDTO;
 import pt.ulisboa.forward.ewp.api.client.exception.RequestException;
 
 /**
@@ -20,6 +21,6 @@ public interface FilesV1Api extends BaseApi {
    * @throws RequestException If the request is invalid, including if the file ID does not exist.
    */
   @RequestLine("GET /api/forward/ewp/files/v1?hei_id={heiId}&file_id={fileId}")
-  ResponseWithDataDto<FileResponse> findByHeiId(@Param("heiId") String heiId, @Param("fileId") String fileId);
+  ResponseWithDataDto<FileResponseDTO> findByHeiId(@Param("heiId") String heiId, @Param("fileId") String fileId);
 
 }
