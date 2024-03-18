@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.25.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.25.0) (2024-03-18)
+
+
+### Improvements
+-  adapt Files V1 API to EWP Node 0.29.0 ([7c360949a64fbe9](https://github.com/ULisboa/forward-ewp-api-client/commit/7c360949a64fbe9ee2b279b3527b5e50fa778459))
+
+
+
 ## [0.24.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.24.0) (2024-03-15)
 
 ### Features
