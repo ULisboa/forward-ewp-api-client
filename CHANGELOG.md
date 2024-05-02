@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.26.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.26.0) (2024-05-02)
+
+
+
+
+### Refactor
+-  remove support for discontinued IIAs v6 API, IIA Approval v1 API ([8ecad8b5544e3c1](https://github.com/ULisboa/forward-ewp-api-client/commit/8ecad8b5544e3c1df96b744d92e2e82b4c8b5ed7))
+
 ## [0.25.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.25.0) (2024-03-18)
 
 
