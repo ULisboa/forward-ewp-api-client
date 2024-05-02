@@ -4,7 +4,7 @@
 
   <groupId>pt.ulisboa</groupId>
   <artifactId>forward-ewp-api-client</artifactId>
-  <version>0.26.0</version>
+  <version>0.26.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Forward EWP API Client for an EWP Node</name>
@@ -34,7 +34,7 @@
     <developerConnection>scm:git:git@github.com:ULisboa/forward-ewp-api-client.git
     </developerConnection>
     <url>http://github.com/ULisboa/forward-ewp-api-client/tree/master</url>
-    <tag>0.26.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
