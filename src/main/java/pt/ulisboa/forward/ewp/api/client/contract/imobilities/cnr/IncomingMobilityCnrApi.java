@@ -6,6 +6,8 @@ import feign.RequestLine;
 import java.util.List;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto;
+import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
+import pt.ulisboa.forward.ewp.api.client.dto.cnr.ForwardEwpApiCnrSubmissionResponseDTO;
 
 /**
  * Contract interface for the Incoming Mobility CNR Forward EWP API.
@@ -30,7 +32,7 @@ public interface IncomingMobilityCnrApi extends BaseApi {
    */
   @RequestLine("POST /api/forward/ewp/imobilities/cnr")
   @Headers("Content-Type: application/x-www-form-urlencoded")
-  ResponseDto sendChangeNotification(
+  ResponseWithDataDto<ForwardEwpApiCnrSubmissionResponseDTO> sendChangeNotification(
       @Param("sending_hei_id") String sendingHeiId,
       @Param("receiving_hei_id") String receivingHeiId,
       @Param("omobility_id") List<String> outgoingMobilityIds);

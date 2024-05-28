@@ -5,6 +5,8 @@ import feign.Param;
 import feign.RequestLine;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto;
+import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
+import pt.ulisboa.forward.ewp.api.client.dto.cnr.ForwardEwpApiCnrSubmissionResponseDTO;
 
 /**
  * Contract interface for the InterInstitutional Agreements CNR Forward EWP API.
@@ -30,7 +32,7 @@ public interface InterInstitutionalAgreementCnrApi extends BaseApi {
    */
   @RequestLine("POST /api/forward/ewp/iias/cnr")
   @Headers("Content-Type: application/x-www-form-urlencoded")
-  ResponseDto sendChangeNotification(
+  ResponseWithDataDto<ForwardEwpApiCnrSubmissionResponseDTO> sendChangeNotification(
       @Param("notifier_hei_id") String notifierHeiId,
       @Param("notifier_ounit_id") String notifierOunitId,
       @Param("partner_hei_id") String partnerHeiId,
