@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.27.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.27.0) (2024-05-28)
+
+### Features
+-  add support to obtain a CNR status ([7adb89b2da519dc](https://github.com/ULisboa/forward-ewp-api-client/commit/7adb89b2da519dca969ec1893609407c72c1389f))
+-  return change notification IDs as response to CNR Forward EWP APIs ([dbc363c4a21d01c](https://github.com/ULisboa/forward-ewp-api-client/commit/dbc363c4a21d01c522baf566511ecfa4d930a3d1))
+
+
+
+
 ## [0.26.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.26.0) (2024-05-02)
 
 
