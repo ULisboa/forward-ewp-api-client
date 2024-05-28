@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.28.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.28.0) (2024-05-28)
+
+### Features
+-  CnrApi now allows to obtain the statuses of several change notifications ([e7a6bb460651989](https://github.com/ULisboa/forward-ewp-api-client/commit/e7a6bb4606519892dbd176581b6dcafc450ab2f2))
+
+
+
+
 ## [0.27.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.27.0) (2024-05-28)
 
 ### Features
