@@ -12,14 +12,14 @@ import javax.xml.bind.annotation.XmlType;
     name = "",
     propOrder = {"changeNotificationIds"})
 @XmlRootElement(name = "cnr-submission")
-public class ForwardEwpApiCnrSubmissionResponseDTO {
+public class CnrSubmissionResponseDTO {
 
   @XmlElement(name = "change-notification-id", required = true)
   private Collection<Long> changeNotificationIds;
 
-  public ForwardEwpApiCnrSubmissionResponseDTO() {}
+  public CnrSubmissionResponseDTO() {}
 
-  public ForwardEwpApiCnrSubmissionResponseDTO(Collection<Long> changeNotificationIds) {
+  public CnrSubmissionResponseDTO(Collection<Long> changeNotificationIds) {
     this.changeNotificationIds = changeNotificationIds;
   }
 

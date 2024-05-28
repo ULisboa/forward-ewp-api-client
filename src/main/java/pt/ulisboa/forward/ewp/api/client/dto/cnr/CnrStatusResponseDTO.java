@@ -1,6 +1,5 @@
 package pt.ulisboa.forward.ewp.api.client.dto.cnr;
 
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -23,7 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
       "extraVariables"
     })
 @XmlRootElement(name = "cnr-status")
-public class ForwardEwpApiCnrStatusResponseDTO {
+public class CnrStatusResponseDTO {
 
   @XmlElement(name = "id", required = true)
   private long id;
@@ -41,7 +40,7 @@ public class ForwardEwpApiCnrStatusResponseDTO {
   private StatusDto status;
 
   @XmlElement(name = "merged-into", required = true)
-  private ForwardEwpApiCnrStatusResponseDTO mergedInto;
+  private CnrStatusResponseDTO mergedInto;
 
   @XmlElement(name = "extra-variables", required = true)
   private List<ExtraVariableEntryDto> extraVariables = new ArrayList<>();
@@ -142,11 +141,11 @@ public class ForwardEwpApiCnrStatusResponseDTO {
    *
    * @return The change notification into which the current change notification was merged into.
    */
-  public ForwardEwpApiCnrStatusResponseDTO getMergedInto() {
+  public CnrStatusResponseDTO getMergedInto() {
     return mergedInto;
   }
 
-  public void setMergedInto(ForwardEwpApiCnrStatusResponseDTO mergedInto) {
+  public void setMergedInto(CnrStatusResponseDTO mergedInto) {
     this.mergedInto = mergedInto;
   }
 
