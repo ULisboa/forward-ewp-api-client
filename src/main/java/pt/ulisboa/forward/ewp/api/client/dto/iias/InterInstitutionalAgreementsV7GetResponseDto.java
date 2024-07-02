@@ -1,13 +1,13 @@
 package pt.ulisboa.forward.ewp.api.client.dto.iias;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Collection;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import org.springframework.util.Base64Utils;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
@@ -60,7 +60,7 @@ public class InterInstitutionalAgreementsV7GetResponseDto {
    * @return The raw XML as a byte array
    */
   public byte[] getRawXml() {
-    return Base64Utils.decode(this.rawXmlInBase64);
+    return Base64.getDecoder().decode(this.rawXmlInBase64);
   }
 
   /**

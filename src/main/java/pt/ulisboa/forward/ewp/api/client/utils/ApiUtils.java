@@ -3,7 +3,6 @@ package pt.ulisboa.forward.ewp.api.client.utils;
 import feign.Param;
 import feign.RequestLine;
 import java.util.Collection;
-import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import pt.ulisboa.forward.ewp.api.client.contract.BaseApi;
 import pt.ulisboa.forward.ewp.api.client.dto.ResponseWithDataDto;
 import pt.ulisboa.forward.ewp.api.client.dto.SupportedMajorVersionsResponseDTO;
@@ -77,13 +76,6 @@ public class ApiUtils {
         .getMajorVersionsSupportedByApi(apiLocalName, heiId)
         .getDataObject()
         .getSupportedMajorVersions();
-  }
-
-  public static Jaxb2Marshaller getJaxb2Marshaller() {
-    Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-    marshaller
-        .setPackagesToScan("eu.erasmuswithoutpaper.api", "pt.ulisboa.forward.ewp.api.client.dto");
-    return marshaller;
   }
 
   private interface GeneralApi extends BaseApi {

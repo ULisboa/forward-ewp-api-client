@@ -1,5 +1,7 @@
 package pt.ulisboa.forward.ewp.api.client.utils;
 
+import com.google.common.base.Supplier;
+import com.google.common.base.Suppliers;
 import feign.FeignException;
 import feign.Response;
 import feign.Util;
@@ -8,26 +10,33 @@ import feign.codec.Decoder;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.sax.SAXSource;
-import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-/**
- * A decoder for Feign that uses a Spring OXM's Jaxb2Marshaller. By providing a Jaxb2Marshaller it
- * is possible to make use of all features that Jaxb2Marshaller provides, including setting package
- * names to scan all classes on it. For EWP, this is necessary to automatically import all data
- * classes.
- */
+/** A decoder for Feign that uses a lazy loaded Unmarshaller. */
 public class EwpJaxbDecoder implements Decoder {
 
-  private final Jaxb2Marshaller marshaller;
+  private static final Supplier<Unmarshaller> UNMARSHALLER_SUPPLIER =
+      Suppliers.memoize(
+          () -> {
+            try {
+              JAXBContext jaxbContext =
+                  XmlUtils.createJAXBContext(
+                      "eu.erasmuswithoutpaper.api", "pt.ulisboa.forward.ewp.api.client.dto");
+              return jaxbContext.createUnmarshaller();
+            } catch (JAXBException e) {
+              throw new IllegalStateException(
+                  "Failed to create unmarshaller for EWP Node communications", e);
+            }
+          });
 
-  public EwpJaxbDecoder() {
-    this.marshaller = ApiUtils.getJaxb2Marshaller();
-  }
+  public EwpJaxbDecoder() {}
 
   @Override
   public Object decode(Response response, Type type) throws IOException, FeignException {
@@ -52,14 +61,17 @@ public class EwpJaxbDecoder implements Decoder {
       saxParserFactory.setFeature("http://xml.org/sax/features/external-general-entities", false);
       saxParserFactory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
       saxParserFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", false);
-      saxParserFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd",
-          false);
+      saxParserFactory.setFeature(
+          "http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
       saxParserFactory.setNamespaceAware(true);
 
-      return this.marshaller.unmarshal(new SAXSource(
-          saxParserFactory.newSAXParser().getXMLReader(),
-          new InputSource(response.body().asInputStream())));
-    } catch (ParserConfigurationException | SAXException e) {
+      return UNMARSHALLER_SUPPLIER
+          .get()
+          .unmarshal(
+              new SAXSource(
+                  saxParserFactory.newSAXParser().getXMLReader(),
+                  new InputSource(response.body().asInputStream())));
+    } catch (ParserConfigurationException | SAXException | JAXBException e) {
       throw new DecodeException(response.status(), e.toString(), response.request(), e);
     } finally {
       if (response.body() != null) {

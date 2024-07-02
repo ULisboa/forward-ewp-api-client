@@ -42,7 +42,7 @@
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <feign.version>12.5</feign.version>
+    <feign.version>13.3</feign.version>
 
     <!-- Sonar properties -->
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
@@ -89,15 +89,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-oxm</artifactId>
-      <version>5.3.30</version>
-    </dependency>
-
-    <dependency>
       <groupId>pt.ulisboa</groupId>
       <artifactId>ewp-connector-api</artifactId>
-      <version>3.11.1</version>
+      <version>3.16.0</version>
     </dependency>
 
     <dependency>
@@ -109,13 +103,13 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>32.1.2-jre</version>
+      <version>33.2.1-jre</version>
     </dependency>
 
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.4.12</version>
+      <version>1.5.6</version>
     </dependency>
 
     <dependency>
