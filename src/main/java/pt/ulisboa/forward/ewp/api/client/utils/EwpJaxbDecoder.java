@@ -2,6 +2,7 @@ package pt.ulisboa.forward.ewp.api.client.utils;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
+import eu.erasmuswithoutpaper.api.architecture.v1.EmptyV1;
 import feign.FeignException;
 import feign.Response;
 import feign.Util;
@@ -10,6 +11,7 @@ import feign.codec.Decoder;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.Map;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -18,6 +20,7 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.sax.SAXSource;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import pt.ulisboa.forward.ewp.api.client.dto.ResponseDto;
 
 /** A decoder for Feign that uses a lazy loaded Unmarshaller. */
 public class EwpJaxbDecoder implements Decoder {
@@ -28,7 +31,10 @@ public class EwpJaxbDecoder implements Decoder {
             try {
               JAXBContext jaxbContext =
                   XmlUtils.createJAXBContext(
-                      "eu.erasmuswithoutpaper.api", "pt.ulisboa.forward.ewp.api.client.dto");
+                      Map.of(
+                          "eu.erasmuswithoutpaper.api", EmptyV1.class.getClassLoader(),
+                          "pt.ulisboa.forward.ewp.api.client.dto",
+                              ResponseDto.class.getClassLoader()));
               return jaxbContext.createUnmarshaller();
             } catch (JAXBException e) {
               throw new IllegalStateException(
