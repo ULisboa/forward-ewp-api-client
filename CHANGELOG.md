@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.30.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.30.0) (2024-07-02)
+
+
+
+
+
+## [0.29.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.29.0) (2024-07-02)
+
+
+
+
+### Refactor
+-  adapt to use JAXBContext instead of spring-oxm ([b80382467879063](https://github.com/ULisboa/forward-ewp-api-client/commit/b803824678790633bc50f9cf617664a20cb1534e))
+
 ## [0.28.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.28.0) (2024-05-28)
 
 ### Features
