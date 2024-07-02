@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.30.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.30.1) (2024-07-02)
+
+
+### Improvements
+-  when creating JAXBContext consider the actual ClassLoader for each package name ([cc5c21957c9a8c6](https://github.com/ULisboa/forward-ewp-api-client/commit/cc5c21957c9a8c602ccf42d1d155867aeb73a3cf))
+
+
+
 ## [0.30.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.30.0) (2024-07-02)
 
 
