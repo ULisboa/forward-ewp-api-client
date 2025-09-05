@@ -42,7 +42,7 @@
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <feign.version>13.3</feign.version>
+    <feign.version>13.6</feign.version>
 
     <!-- Sonar properties -->
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
@@ -91,7 +91,7 @@
     <dependency>
       <groupId>pt.ulisboa</groupId>
       <artifactId>ewp-connector-api</artifactId>
-      <version>3.16.0</version>
+      <version>4.1.7</version>
     </dependency>
 
     <dependency>
