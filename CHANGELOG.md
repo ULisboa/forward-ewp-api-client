@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.32.0](https://github.com/ULisboa/forward-ewp-api-client/tree/0.32.0) (2025-09-05)
+
+### Features
+-  add OutgoingMobilitiesV3Api ([b1fc0b69a6e132b](https://github.com/ULisboa/forward-ewp-api-client/commit/b1fc0b69a6e132b3e929d2019843cb8424b5833f))
+
+
+### Bug Fixes
+-  wrong method name for get operation on OutgoingMobilitiesV2Api ([81e3a126984d772](https://github.com/ULisboa/forward-ewp-api-client/commit/81e3a126984d7720ce6d02b287582efd44b6c2b7))
+
+
 ## [0.30.1](https://github.com/ULisboa/forward-ewp-api-client/tree/0.30.1) (2024-07-02)
 
 
