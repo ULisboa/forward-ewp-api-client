@@ -78,18 +78,19 @@ public interface OutgoingMobilitiesV2Api extends BaseApi {
    * This API allows the client to retrieve information on specific outgoing mobilities from the
    * sending HEI.
    *
-   * @param sendingHeiId        [REQUIRED] SCHAC ID of the mobilities' owner HEI (in EWP, the
-   *                            sending HEI is always the mobility's "owner").
+   * @param sendingHeiId [REQUIRED] SCHAC ID of the mobilities' owner HEI (in EWP, the sending HEI
+   *     is always the mobility's "owner").
    * @param outgoingMobilityIds [REQUIRED] A list of identifiers (no more than
-   *                            getMaxOmobilityIdsPerRequest(sendingHeiId) items) of mobilities
-   *                            which the client wants to retrieve information on.
-   * @return See <a href="https://github.com/erasmus-without-paper/ewp-specs-api-omobilities/blob/stable-v2/endpoints/get-response.xsd">Response
-   * specification</a>
-   * @requires iiaIds.size() <= getMaxOmobilityIdsPerRequest(sendingHeiId)
+   *     getMaxOmobilityIdsPerRequest(sendingHeiId) items) of mobilities which the client wants to
+   *     retrieve information on.
+   * @return See <a
+   *     href="https://github.com/erasmus-without-paper/ewp-specs-api-omobilities/blob/stable-v2/endpoints/get-response.xsd">Response
+   *     specification</a>
+   * @requires outgoingMobilityIds.size() <= getMaxOmobilityIdsPerRequest(sendingHeiId)
    */
   @RequestLine("POST /api/forward/ewp/omobilities/v2/get")
   @Headers("Content-Type: application/x-www-form-urlencoded")
-  ResponseWithDataDto<OmobilitiesGetResponseV2> findByHeiIdAndIiaIds(
+  ResponseWithDataDto<OmobilitiesGetResponseV2> findByHeiIdAndOmobilityIds(
       @Param("sending_hei_id") String sendingHeiId,
       @Param("omobility_id") List<String> outgoingMobilityIds);
 }
