@@ -8,9 +8,9 @@
 </h1>
 
 <p align="center">
-  <a href="https://maven-badges.herokuapp.com/maven-central/pt.ulisboa/forward-ewp-api-client">
-    <img src="https://maven-badges.herokuapp.com/maven-central/pt.ulisboa/forward-ewp-api-client/badge.svg"
-        alt="Maven Central">
+  <a href="https://maven-badges.sml.io/sonatype-central/pt.ulisboa/forward-ewp-api-client">
+    <img src="https://maven-badges.sml.io/sonatype-central/pt.ulisboa/forward-ewp-api-client/badge.svg"
+        alt="Sonatype Central">
   </a>
   <a href="https://github.com/ULisboa/forward-ewp-api-client/blob/master/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/ulisboa/forward-ewp-api-client">
